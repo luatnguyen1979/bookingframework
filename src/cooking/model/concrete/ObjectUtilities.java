@@ -35,7 +35,7 @@ final public class ObjectUtilities {
 		// TODO Auto-generated constructor stub
 	}
 
-	public static List<Address> loadAddressData() {
+	/*public static List<Address> loadAddressData() {
 		return loadObjectData(JSON_ADDRESS);
 
 	}
@@ -58,7 +58,7 @@ final public class ObjectUtilities {
 	public static List<Profile> loadProfileData() {
 		return loadObjectData(JSON_PROFILE);
 
-	}
+	}*/
 
 	public static List<Recipe> loadRecipeData() {
 		return loadObjectData(JSON_RECIPE);
@@ -87,51 +87,93 @@ final public class ObjectUtilities {
 
 	}
 
-	/*
-	 * public static List<Address> loadAddressData() { ObjectMapper mapper = new
-	 * ObjectMapper(); try { List<Address> list = mapper.readValue(new File(PATH +
-	 * JSON_ADDRESS), new TypeReference<List<Address>>() { }); return list; } catch
-	 * (JsonGenerationException e) { e.printStackTrace(); } catch
-	 * (JsonMappingException e) { e.printStackTrace(); } catch (IOException e) {
-	 * e.printStackTrace(); } return null; }
-	 * 
-	 * public static List<FoodComponent> loadFoodComponentData() { ObjectMapper
-	 * mapper = new ObjectMapper(); try { List<FoodComponent> list =
-	 * mapper.readValue(new File(PATH + JSON_FOOD_COMPONENT), new
-	 * TypeReference<List<FoodComponent>>() { }); return list; } catch
-	 * (JsonGenerationException e) { e.printStackTrace(); } catch
-	 * (JsonMappingException e) { e.printStackTrace(); } catch (IOException e) {
-	 * e.printStackTrace(); } return null; }
-	 * 
-	 * public static List<Category> loadCategoryData() { ObjectMapper mapper = new
-	 * ObjectMapper(); try { List<Category> list = mapper.readValue(new File(PATH +
-	 * JSON_CATEGORY), new TypeReference<List<Category>>() { }); return list; }
-	 * catch (JsonGenerationException e) { e.printStackTrace(); } catch
-	 * (JsonMappingException e) { e.printStackTrace(); } catch (IOException e) {
-	 * e.printStackTrace(); } return null; }
-	 * 
-	 * 
-	 * public static List<Profile> loadProfileData() { ObjectMapper mapper = new
-	 * ObjectMapper(); try { List<Profile> list = mapper.readValue(new File(PATH +
-	 * JSON_PROFILE), new TypeReference<List<Profile>>() { }); return list; } catch
-	 * (JsonGenerationException e) { e.printStackTrace(); } catch
-	 * (JsonMappingException e) { e.printStackTrace(); } catch (IOException e) {
-	 * e.printStackTrace(); } return null;
-	 * 
-	 * }
-	 */
+	
+	public static List<Address> loadAddressData() {
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			List<Address> list = mapper.readValue(new File(PATH + JSON_ADDRESS), new TypeReference<List<Address>>() {
+			});
+			return list;
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
-	/*
-	 * public static List<NutritionFact> loadNutritionFactData() { ObjectMapper
-	 * mapper = new ObjectMapper(); try { List<NutritionFact> list =
-	 * mapper.readValue(new File(PATH + JSON_NUTRITION_FACT), new
-	 * TypeReference<List<NutritionFact>>() { }); return list; } catch
-	 * (JsonGenerationException e) { e.printStackTrace(); } catch
-	 * (JsonMappingException e) { e.printStackTrace(); } catch (IOException e) {
-	 * e.printStackTrace(); } return null;
-	 * 
-	 * }
-	 */
+	public static List<FoodComponent> loadFoodComponentData() {
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			List<FoodComponent> list = mapper.readValue(new File(PATH + JSON_FOOD_COMPONENT),
+					new TypeReference<List<FoodComponent>>() {
+					});
+			return list;
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public static List<Category> loadCategoryData() {
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			List<Category> list = mapper.readValue(new File(PATH + JSON_CATEGORY), new TypeReference<List<Category>>() {
+			});
+			return list;
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public static List<Profile> loadProfileData() {
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			List<Profile> list = mapper.readValue(new File(PATH + JSON_PROFILE), new TypeReference<List<Profile>>() {
+			});
+			return list;
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+
+	}
+	 
+
+	
+	public static List<NutritionFact> loadNutritionFactData() {
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			List<NutritionFact> list = mapper.readValue(new File(PATH + JSON_NUTRITION_FACT),
+					new TypeReference<List<NutritionFact>>() {
+					});
+			return list;
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+
+	}
+	 
 
 	public static Address getAddressByID(String ID) {
 		List<Address> list = loadAddressData();

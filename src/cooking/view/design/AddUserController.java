@@ -1,33 +1,24 @@
 package cooking.view.design;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import cooking.model.concrete.IUserAndProfile;
+import cooking.model.concrete.UserAndProfileFactory;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
-import java.util.List;
-
-
-import cooking.concrete.FactoryClass;
-import cooking.concrete.IUserAndProfile;
-import javafx.event.ActionEvent;
-
-import javafx.scene.control.Label;
-
-import javafx.scene.control.TextArea;
-
-import javafx.scene.control.RadioButton;
-
-import javafx.scene.control.PasswordField;
-
-import javafx.scene.control.DatePicker;
 
 public class AddUserController {
 	@FXML
@@ -112,7 +103,7 @@ public class AddUserController {
 
 			ff.add(txt_favFood.getText());
 
-			IUserAndProfile uap = FactoryClass.createUserAndProfile("10", txt_userName.getText(), txt_pswrd.getText(),
+			IUserAndProfile uap = UserAndProfileFactory.createUserAndProfile("10", txt_userName.getText(), txt_pswrd.getText(),
 					role, txt_fName.getText() + " " + txt_lName.getText(), txt_email.getText(), dp_birthdate.getValue(),
 					rb_male.isSelected(), h, w, ff);
 

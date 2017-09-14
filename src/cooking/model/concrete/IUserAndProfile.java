@@ -10,7 +10,8 @@ import cooking.model.concrete.User;
  * @author Van Gia Luat Nguyen
  *
  */
-public interface IUserAndFrofile {
+public interface IUserAndProfile {
+	
 	public Profile getProfile();
 	
 	public User getUser();

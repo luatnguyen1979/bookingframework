@@ -4,6 +4,7 @@
 package cooking.model.concrete;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,7 +44,7 @@ final public class Profile {
 	 * @param favFoods
 	 * @param favFoodComponents
 	 */
-	Profile(String profileName, String name, String email, LocalDate dob, boolean gender, double height, double weight, List<String> favFoods, List<String> favFoodComponents) {
+	Profile(String profileName, String name, String email, LocalDate dob, boolean gender, double height, double weight) {
 		this.profileID = profileName;
 		this.name = name;
 		this.email = email;
@@ -51,8 +52,8 @@ final public class Profile {
 		this.gender = gender;
 		this.height = height;
 		this.weigth = weight;
-		this.favFoods = favFoods;
-		this.favFoodComponents = favFoodComponents;
+		this.favFoods = new ArrayList<String>();
+		this.favFoodComponents = new ArrayList<String>();
 	
 	}
 

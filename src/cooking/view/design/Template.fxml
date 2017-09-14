@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-
 <BorderPane fx:id="bp_mainWindow" prefHeight="550.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cooking.view.design.TemplateController">
    <top>
       <SplitPane dividerPositions="0.5" orientation="VERTICAL">
@@ -23,11 +22,7 @@
       					<MenuItem fx:id="mi_searchByFoodComponent" mnemonicParsing="false" text="Search by food component" />
       				</items>
       			</Menu>
-      			<Menu fx:id="menu_Category" mnemonicParsing="false" onAction="#getCategory" text="Category">
-      				<items>
-      					<MenuItem mnemonicParsing="false" text="Action 1" />
-      				</items>
-      			</Menu>
+      			<Menu fx:id="menu_Category" mnemonicParsing="false" onAction="#getCategory" text="Category" />
       			<Menu mnemonicParsing="false" text="Admin">
       				<items>
       					<Menu mnemonicParsing="false" text="Add">

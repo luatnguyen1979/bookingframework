@@ -3,25 +3,28 @@
  */
 package cooking.model.concrete;
 
-import cooking.model.concrete.IUserAndFrofile;
+import cooking.model.concrete.IUserAndProfile;
 import cooking.model.concrete.Profile;
 import cooking.model.concrete.User;
+
 /**
  * @author Van Gia Luat Nguyen
  *
  */
-public class UserAndProfileImpl implements IUserAndFrofile {
-	
+public class UserAndProfileImpl implements IUserAndProfile {
+
 	private User user;
 	private Profile profile;
 
 	/**
 	 * 
 	 */
-	/*private UserAndProfileImpl() {
-		
-	}*/
-	
+	/*
+	 * private UserAndProfileImpl() {
+	 * 
+	 * }
+	 */
+
 	/**
 	 * 
 	 * @param user
@@ -45,7 +48,10 @@ public class UserAndProfileImpl implements IUserAndFrofile {
 	public Profile getProfile() {
 		return profile;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return (this.user.toString() + this.profile.toString());
+	}
 
 }
