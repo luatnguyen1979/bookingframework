@@ -16,15 +16,16 @@ import javafx.stage.Stage;
  * @author 986042
  */
 public class CookMe extends Application {
-    
+	Stage primaryStage;
+	
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("AddCategory.fxml"));
+    	this.primaryStage = stage;
+        Parent root = FXMLLoader.load(getClass().getResource("FirstScreen.fxml"));
         
         Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
-        stage.show();
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     /**
@@ -32,6 +33,8 @@ public class CookMe extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    	
+    	
     }
     
 }

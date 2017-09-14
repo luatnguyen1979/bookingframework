@@ -7,7 +7,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<SplitPane dividerPositions="0.1457286432160804" orientation="VERTICAL" prefHeight="475.0" prefWidth="700.0" stylesheets="@mainxml.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane dividerPositions="0.1457286432160804" orientation="VERTICAL" prefHeight="475.0" 
+prefWidth="700.0" stylesheets="@mainxml.css" xmlns="http://javafx.com/javafx/8" 
+xmlns:fx="http://javafx.com/fxml/1" fx:controller="cooking.view.design.AddCategoryController">
     <items>
         <AnchorPane id="headerPanel" prefHeight="50.0" prefWidth="700.0" styleClass="panel">
             <children>
@@ -41,10 +43,19 @@
                     <children>
                         <Label text="Category Name:" GridPane.rowIndex="2" />
                         <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Button fx:id="btn_addCategory" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Add Category" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-                        <Button fx:id="btn_resetCat" mnemonicParsing="false" prefHeight="25.0" text="Reset" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                        
+                        <Button fx:id="btn_addCategory" mnemonicParsing="false" prefHeight="25.0" 
+                        prefWidth="95.0" text="Add Category" GridPane.columnIndex="5" 
+                        GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                        
+                        <Button fx:id="btn_resetCat" mnemonicParsing="false" prefHeight="25.0" 
+                        text="Reset" GridPane.columnIndex="1" GridPane.halignment="CENTER" 
+                        GridPane.rowIndex="5" onAction="#resetCatButtonAction"/>
+                        
                         <ComboBox prefHeight="25.0" prefWidth="196.0" promptText="Choose one or more recipes" visibleRowCount="8" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                        
                         <Label text="Recipe" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        
                         <Label styleClass="validationAsterisk" text="*" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                     </children>
                 </GridPane>

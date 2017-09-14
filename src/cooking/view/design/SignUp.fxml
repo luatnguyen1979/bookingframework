@@ -8,7 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<SplitPane dividerPositions="0.1457286432160804" orientation="VERTICAL" prefHeight="450.0" prefWidth="700.0" stylesheets="@mainxml.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane dividerPositions="0.1457286432160804" orientation="VERTICAL" prefHeight="450.0"
+ prefWidth="700.0" stylesheets="@mainxml.css" xmlns="http://javafx.com/javafx/8" 
+ xmlns:fx="http://javafx.com/fxml/1">
   <items>
     <AnchorPane id="headerPanel" prefHeight="49.0" prefWidth="700.0" styleClass="panel" />
     <AnchorPane id="contentPanel" styleClass="panel">
