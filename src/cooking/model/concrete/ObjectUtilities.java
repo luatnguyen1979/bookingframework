@@ -35,35 +35,38 @@ final public class ObjectUtilities {
 		// TODO Auto-generated constructor stub
 	}
 
-	/*public static List<Address> loadAddressData() {
-		return loadObjectData(JSON_ADDRESS);
-
-	}
-
-	public static List<Category> loadCategoryData() {
-		return loadObjectData(JSON_CATEGORY);
-
-	}
-
-	public static List<FoodComponent> loadFoodComponentData() {
-		return loadObjectData(JSON_FOOD_COMPONENT);
-
-	}
-
-	public static List<NutritionFact> loadNutritionFactData() {
-		return loadObjectData(JSON_NUTRITION_FACT);
-
-	}
-
-	public static List<Profile> loadProfileData() {
-		return loadObjectData(JSON_PROFILE);
-
-	}*/
-
-	public static List<Recipe> loadRecipeData() {
-		return loadObjectData(JSON_RECIPE);
-
-	}
+	/*
+	 * public static List<Address> loadAddressData() { return
+	 * loadObjectData(JSON_ADDRESS);
+	 * 
+	 * }
+	 * 
+	 * public static List<Category> loadCategoryData() { return
+	 * loadObjectData(JSON_CATEGORY);
+	 * 
+	 * }
+	 * 
+	 * public static List<FoodComponent> loadFoodComponentData() { return
+	 * loadObjectData(JSON_FOOD_COMPONENT);
+	 * 
+	 * }
+	 * 
+	 * public static List<NutritionFact> loadNutritionFactData() { return
+	 * loadObjectData(JSON_NUTRITION_FACT);
+	 * 
+	 * }
+	 * 
+	 * public static List<Profile> loadProfileData() { return
+	 * loadObjectData(JSON_PROFILE);
+	 * 
+	 * }
+	 * 
+	 */
+	 public static List<Recipe> loadRecipeData() { return
+	  loadObjectData(JSON_RECIPE);
+	  
+	  }
+	 
 
 	public static List<Unit> loadUnitData() {
 		return loadObjectData(JSON_UNIT);
@@ -87,29 +90,11 @@ final public class ObjectUtilities {
 
 	}
 
-	
 	public static List<Address> loadAddressData() {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			List<Address> list = mapper.readValue(new File(PATH + JSON_ADDRESS), new TypeReference<List<Address>>() {
 			});
-			return list;
-		} catch (JsonGenerationException e) {
-			e.printStackTrace();
-		} catch (JsonMappingException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	public static List<FoodComponent> loadFoodComponentData() {
-		ObjectMapper mapper = new ObjectMapper();
-		try {
-			List<FoodComponent> list = mapper.readValue(new File(PATH + JSON_FOOD_COMPONENT),
-					new TypeReference<List<FoodComponent>>() {
-					});
 			return list;
 		} catch (JsonGenerationException e) {
 			e.printStackTrace();
@@ -137,6 +122,40 @@ final public class ObjectUtilities {
 		return null;
 	}
 
+	// This is the one I created
+//	public static List<Recipe> loadRecipeData() {
+//		ObjectMapper mapper = new ObjectMapper();
+//		try {
+//			List<Recipe> list = mapper.readValue(new File(PATH + JSON_RECIPE), new TypeReference<List<Recipe>>() {
+//			});
+//			return list;
+//		} catch (JsonGenerationException e) {
+//			e.printStackTrace();
+//		} catch (JsonMappingException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		return null;
+//	}
+
+	public static List<FoodComponent> loadFoodComponentData() {
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			List<FoodComponent> list = mapper.readValue(new File(PATH + JSON_FOOD_COMPONENT),
+					new TypeReference<List<FoodComponent>>() {
+					});
+			return list;
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public static List<Profile> loadProfileData() {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
@@ -153,9 +172,7 @@ final public class ObjectUtilities {
 		return null;
 
 	}
-	 
 
-	
 	public static List<NutritionFact> loadNutritionFactData() {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
@@ -173,7 +190,6 @@ final public class ObjectUtilities {
 		return null;
 
 	}
-	 
 
 	public static Address getAddressByID(String ID) {
 		List<Address> list = loadAddressData();
@@ -217,7 +233,18 @@ final public class ObjectUtilities {
 		return newList;
 	}
 
-	public static Profile getProfileID(String ID) {
+	public static List<Recipe> getRecipeByName(String name) {
+		List<Recipe> lr = loadRecipeData();
+		List<Recipe> newList = new ArrayList<Recipe>();
+		for (Recipe item : lr) {
+			if (item.getName().toLowerCase().equals(name.toLowerCase())) {
+				newList.add(item);
+			}
+		}
+		return newList;
+	}
+
+	static Profile getProfileID(String ID) {
 		List<Profile> list = loadProfileData();
 		for (Profile item : list) {
 			if (ID.equals(item.getProfileID())) {
