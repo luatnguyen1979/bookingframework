@@ -32,7 +32,7 @@ public class RecipeListController {
 			tps[i] = new TitledPane();
 			//tp.setPrefHeight(100);
 			grid = new GridPane();
-			grid.setVgap(4);
+			grid.setVgap(6);
 			grid.setPadding(new Insets(5, 5, 5, 5));
 			grid.add(new Label("Recipe Name: "), 0, 0);
 			grid.add(new Label("We'll put the name here"), 1, 0);
