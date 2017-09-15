@@ -13,6 +13,9 @@ public class Recipe {
 	private String description;
 	private String cookingSteps;
 	private String categoryID;
+	
+	public Recipe() {}
+	
 
 	/**
 	 * 
