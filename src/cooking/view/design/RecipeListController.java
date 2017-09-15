@@ -5,9 +5,13 @@ import java.util.List;
 import cooking.model.concrete.ObjectUtilities;
 import cooking.model.concrete.Recipe;
 import javafx.fxml.FXML;
-
+import javafx.geometry.Insets;
 import javafx.scene.control.Accordion;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 
 public class RecipeListController {
 	@FXML
@@ -25,7 +29,18 @@ public class RecipeListController {
 		
 		for(int i = 0; i < 5; i++) {
 			TitledPane tp = new TitledPane();
+			//tp.setPrefHeight(100);
 			tp.setText("Recipe " + i);
+			GridPane grid = new GridPane();
+			grid.setVgap(4);
+			grid.setPadding(new Insets(5, 5, 5, 5));
+			grid.add(new Label("Recipe Name: "), 0, 0);
+			grid.add(new Label("We'll put the name here"), 1, 0);
+			grid.add(new Label("Recipe Description: "), 0, 1);
+			grid.add(new Label("We'll add description here"), 1, 1);
+			grid.add(new Label("Cooking Steps: "), 0, 2);
+			grid.add(new Label("annd here our steps"), 1, 2);        
+			tp.setContent(grid);
 			recipeAccordionPanel.getPanes().addAll(tp);
 		}
 
