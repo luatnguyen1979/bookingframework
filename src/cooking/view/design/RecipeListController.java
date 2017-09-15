@@ -26,12 +26,12 @@ public class RecipeListController {
 //			tp.setText(r.getName() + " Recipe");
 //			recipeAccordionPanel.getPanes().addAll(tp);
 //		}
-		
+		TitledPane[] tps = new TitledPane[5];
+		GridPane grid ;
 		for(int i = 0; i < 5; i++) {
-			TitledPane tp = new TitledPane();
+			tps[i] = new TitledPane();
 			//tp.setPrefHeight(100);
-			tp.setText("Recipe " + i);
-			GridPane grid = new GridPane();
+			grid = new GridPane();
 			grid.setVgap(4);
 			grid.setPadding(new Insets(5, 5, 5, 5));
 			grid.add(new Label("Recipe Name: "), 0, 0);
@@ -39,10 +39,15 @@ public class RecipeListController {
 			grid.add(new Label("Recipe Description: "), 0, 1);
 			grid.add(new Label("We'll add description here"), 1, 1);
 			grid.add(new Label("Cooking Steps: "), 0, 2);
-			grid.add(new Label("annd here our steps"), 1, 2);        
-			tp.setContent(grid);
-			recipeAccordionPanel.getPanes().addAll(tp);
+			grid.add(new Label("annd here our steps"), 1, 2);
+			
+			tps[i].setContent(grid);
+			tps[i].setText("Recipe " + i);
+
 		}
+		recipeAccordionPanel.getPanes().addAll(tps);
+
+		recipeAccordionPanel.setExpandedPane(tps[0]);
 
 	}
 
