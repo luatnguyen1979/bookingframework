@@ -62,10 +62,10 @@ final public class ObjectUtilities {
 	 * }
 	 * 
 	 */
-	 public static List<Recipe> loadRecipeData() { return
-	  loadObjectData(JSON_RECIPE);
-	  
-	  }
+//	 public static List<Recipe> loadRecipeData() { return
+//	  loadObjectData(JSON_RECIPE);
+//	  
+//	  }
 	 
 
 	public static List<Unit> loadUnitData() {
@@ -123,21 +123,21 @@ final public class ObjectUtilities {
 	}
 
 	// This is the one I created
-//	public static List<Recipe> loadRecipeData() {
-//		ObjectMapper mapper = new ObjectMapper();
-//		try {
-//			List<Recipe> list = mapper.readValue(new File(PATH + JSON_RECIPE), new TypeReference<List<Recipe>>() {
-//			});
-//			return list;
-//		} catch (JsonGenerationException e) {
-//			e.printStackTrace();
-//		} catch (JsonMappingException e) {
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		return null;
-//	}
+	public static List<Recipe> loadRecipeData() {
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			List<Recipe> list = mapper.readValue(new File(PATH + JSON_RECIPE), new TypeReference<List<Recipe>>() {
+			});
+			return list;
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	public static List<FoodComponent> loadFoodComponentData() {
 		ObjectMapper mapper = new ObjectMapper();
