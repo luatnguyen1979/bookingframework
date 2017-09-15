@@ -2,6 +2,8 @@ package cooking.view.design;
 
 import java.util.List;
 
+import com.fasterxml.jackson.databind.util.LRUMap;
+
 import cooking.model.concrete.Category;
 import cooking.model.concrete.ObjectUtilities;
 import cooking.model.concrete.Recipe;
@@ -20,21 +22,22 @@ public class RecipeListController {
 	@FXML
 	private void initialize() {
 		
-//		List<Category> rl = ObjectUtilities.loadCategoryData();
-//		for (Category r : rl) {
-//			TitledPane tp = new TitledPane();
-//			tp.setText(r.getName() + " Recipe");
-//			recipeAccordionPanel.getPanes().addAll(tp);
-//		}
+		List<Recipe> rl = ObjectUtilities.loadRecipeData();
+		for (Recipe r : rl) {
+			TitledPane tp = new TitledPane();
+			tp.setText(r.getName() + " Recipe");
+			recipeAccordionPanel.getPanes().addAll(tp);
+		}
 		
 		TitledPane[] tps = new TitledPane[5];
 		GridPane grid ;
 		for(int i = 0; i < 5; i++) {
+			//Recipe recipe = rl.get(i);
 			tps[i] = new TitledPane();
 			grid = new GridPane();
 			grid.setVgap(6);
 			grid.setPadding(new Insets(5, 5, 5, 5));
-			grid.add(new Label("Recipe Name: "), 0, 0);
+			//grid.add(rl.get(i).`);
 			grid.add(new Label("We'll put the name here"), 1, 0);
 			grid.add(new Button("Delete"), 2, 0);
 						
