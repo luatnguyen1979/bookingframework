@@ -8,6 +8,7 @@ import cooking.model.concrete.Recipe;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Accordion;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.GridPane;
@@ -19,12 +20,12 @@ public class RecipeListController {
 	@FXML
 	private void initialize() {
 		
-		List<Category> rl = ObjectUtilities.loadCategoryData();
-		for (Category r : rl) {
-			TitledPane tp = new TitledPane();
-			tp.setText(r.getName() + " Recipe");
-			recipeAccordionPanel.getPanes().addAll(tp);
-		}
+//		List<Category> rl = ObjectUtilities.loadCategoryData();
+//		for (Category r : rl) {
+//			TitledPane tp = new TitledPane();
+//			tp.setText(r.getName() + " Recipe");
+//			recipeAccordionPanel.getPanes().addAll(tp);
+//		}
 		
 		TitledPane[] tps = new TitledPane[5];
 		GridPane grid ;
@@ -35,10 +36,17 @@ public class RecipeListController {
 			grid.setPadding(new Insets(5, 5, 5, 5));
 			grid.add(new Label("Recipe Name: "), 0, 0);
 			grid.add(new Label("We'll put the name here"), 1, 0);
+			grid.add(new Button("Delete"), 2, 0);
+						
 			grid.add(new Label("Recipe Description: "), 0, 1);
 			grid.add(new Label("We'll add description here"), 1, 1);
+			grid.add(new Button("Delete"), 3, 0);
+
+			
 			grid.add(new Label("Cooking Steps: "), 0, 2);
 			grid.add(new Label("annd here our steps"), 1, 2);
+			grid.add(new Button("Delete"), 3, 0);
+
 			
 			tps[i].setContent(grid);
 			tps[i].setText("Recipe " + i);

@@ -83,19 +83,19 @@ public class TemplateController {
 		}
 	}
 	
-	@FXML
-	private void initialize() {
-		List<Category> lc = ObjectUtilities.loadCategoryData();
-		for(Category c: lc) {
-			MenuItem mi = new MenuItem(c.getName());
-			
-			mi.setOnAction(new EventHandler<ActionEvent>() {
-	            public void handle(ActionEvent t) {
-	                //shuffle();
-	                //vbox.setVisible(true);
-	            }
-	        });
-			menu_Category.getItems().addAll(mi);
-		}
-	}
+//	@FXML
+//	private void initialize() {
+//		List<Category> lc = ObjectUtilities.loadCategoryData();
+//		for(Category c: lc) {
+//			MenuItem mi = new MenuItem(c.getName());
+//			
+//			mi.setOnAction(new EventHandler<ActionEvent>() {
+//	            public void handle(ActionEvent t) {
+//	                //shuffle();
+//	                //vbox.setVisible(true);
+//	            }
+//	        });
+//			menu_Category.getItems().addAll(mi);
+//		}
+//	}
 }
