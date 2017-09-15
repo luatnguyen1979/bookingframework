@@ -2,16 +2,15 @@ package cooking.view.design;
 
 import java.util.List;
 
+import cooking.model.concrete.Category;
 import cooking.model.concrete.ObjectUtilities;
 import cooking.model.concrete.Recipe;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 
 public class RecipeListController {
 	@FXML
@@ -20,17 +19,17 @@ public class RecipeListController {
 	@FXML
 	private void initialize() {
 		
-//		List<Recipe> rl = ObjectUtilities.loadRecipeData();
-//		for (Recipe r : rl) {
-//			TitledPane tp = new TitledPane();
-//			tp.setText(r.getName() + " Recipe");
-//			recipeAccordionPanel.getPanes().addAll(tp);
-//		}
+		List<Category> rl = ObjectUtilities.loadCategoryData();
+		for (Category r : rl) {
+			TitledPane tp = new TitledPane();
+			tp.setText(r.getName() + " Recipe");
+			recipeAccordionPanel.getPanes().addAll(tp);
+		}
+		
 		TitledPane[] tps = new TitledPane[5];
 		GridPane grid ;
 		for(int i = 0; i < 5; i++) {
 			tps[i] = new TitledPane();
-			//tp.setPrefHeight(100);
 			grid = new GridPane();
 			grid.setVgap(6);
 			grid.setPadding(new Insets(5, 5, 5, 5));
