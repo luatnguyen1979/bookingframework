@@ -1,16 +1,16 @@
-[{
-"recipeID": "30c7d475-f735-4ffd-acf1-962f878c7403",
-"name":"Oblete",
-"description":"This is Oblete recipe",
-"cookingSteps":"Oil, black pepper, sugar, salt, fishsfauce, eggs",
-"categoryID":"8dcbcbd2-c179-4d6b-abb2-8ec08829d4c5"
-
-},
-{
-"recipeID": "9c618a31-60f5-40c3-a3bf-e39b34e0db9a",
-"name":"Beef Steak",
-"description":"This is Beef Steak recipe",
-"cookingSteps":"Oil, black pepper, sugar, salt, soy sauce, beef",
-"categoryID":"377c8fc5-a94d-49bb-a970-5d3016dd7097"
-
-}]
+[
+	{
+		"recipeID": "30c7d475-f735-4ffd-acf1-962f878c7403",
+		"name": "Oblete",
+		"description": "This is Oblete recipe",
+		"cookingSteps": "Oil, black pepper, sugar, salt, fishsfauce, eggs",
+		"categoryID": "8dcbcbd2-c179-4d6b-abb2-8ec08829d4c5"
+	},
+	{
+		"recipeID": "9c618a31-60f5-40c3-a3bf-e39b34e0db9a",
+		"name": "Beef Steak",
+		"description": "This is Beef Steak recipe",
+		"cookingSteps": "Oil, black pepper, sugar, salt, soy sauce, beef",
+		"categoryID": "377c8fc5-a94d-49bb-a970-5d3016dd7097"
+	}
+]
