@@ -69,33 +69,6 @@ public class TemplateController {
 			FXMLLoader loader= new FXMLLoader(getClass().getResource("RecipeList.fxml"));
 			root = (Parent)loader.load();
 			bp_mainWindow.setCenter(root);
-			
-//			List<Recipe> lr = ObjectUtilities.getRecipeByName("Beef Steak");
-//			List<TitledPane> acc = new ArrayList<TitledPane>();
-//			for (Recipe r : lr) {
-//				TitledPane tp = new TitledPane();
-//				tp.setText(r.getName() + " Recipe");
-//				acc.add(tp);
-//			}
-//			
-//			RecipeListController rlc = (RecipeListController) loader.<RecipeListController>getControllerFactory();
-//			rlc.initData(acc);
 		}
 	}
-	
-//	@FXML
-//	private void initialize() {
-//		List<Category> lc = ObjectUtilities.loadCategoryData();
-//		for(Category c: lc) {
-//			MenuItem mi = new MenuItem(c.getName());
-//			
-//			mi.setOnAction(new EventHandler<ActionEvent>() {
-//	            public void handle(ActionEvent t) {
-//	                //shuffle();
-//	                //vbox.setVisible(true);
-//	            }
-//	        });
-//			menu_Category.getItems().addAll(mi);
-//		}
-//	}
 }
