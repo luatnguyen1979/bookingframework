@@ -3,6 +3,8 @@
  */
 package cooking.model.concrete;
 
+import java.util.UUID;
+
 /**
  * @author Van Gia Luat Nguyen
  *
@@ -23,8 +25,8 @@ public final class Unit {
 	 * @param name
 	 * @param type
 	 */
-	public Unit(String unitID, String name, String type) {
-		this.unitID = unitID;
+	public Unit(String name, String type) {
+		this.unitID = UUID.randomUUID().toString();
 		this.name = name;
 		this.type = type;
 	}

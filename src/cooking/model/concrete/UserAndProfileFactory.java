@@ -16,7 +16,7 @@ public final class UserAndProfileFactory {
 		LocalDate d = LocalDate.of(2014, 5, 10);
 
 		User user = new User(userID, userName, password, role);
-		Profile profile = new Profile(userID, name, email, d, gender, height, weight);
+		Profile profile = new Profile(name, email, d, gender, height, weight);
 		user.setProfile(profile);
 		profile.setUser(user);
 

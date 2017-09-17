@@ -1,4 +1,8 @@
 [{
+"unitID": "c5dc6307-d337-4896-a543-b8449297579f",
+"name":"",
+"type":"Nutrition"
+},{
 "unitID": "c7cf292d-f5b7-4d5c-8078-d632cb034a60",
 "name":"g",
 "type":"Nutrition"
@@ -35,4 +39,14 @@
 "type":"Food"},
 {"unitID": "968ff730-52d4-410e-942e-e0a27b3761a1",
 "name":"gallon",
-"type":""}]
+"type":"Food"},
+{"unitID": "0bb931dc-068c-4557-82d0-6ddb6f495c5d",
+"name":"slices",
+"type":"Food"},
+{"unitID": "0bb931dc-068c-4557-82d0-6ddb6f495c5d",
+"name":"piece",
+"type":"Food"},
+{"unitID": "cb0ed37f-3862-425b-986b-49f8ca976e12",
+"name":"IU",
+"type":"Food"}
+]

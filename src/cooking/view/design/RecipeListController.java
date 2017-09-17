@@ -58,7 +58,7 @@ public class RecipeListController {
 			grid.add(new Button("Modify"), 1, 3);
 			
 			Button btn_delete = new Button("Delete");
-			btn_delete.la
+			//btn_delete.la
 			grid.add(btn_delete, 1, 3);
 			tps[i].setText(r.getName() + " Recipe");
 			tps[i].setContent(grid);

@@ -5,6 +5,7 @@ package cooking.model.concrete;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import cooking.model.concrete.interfaces.*;
 
@@ -14,6 +15,7 @@ import cooking.model.concrete.interfaces.*;
  */
 public final class FoodComponent implements IUnit {
 
+	private String foodComponentID;
 	private String recipeID;
 	private String unitID;
 	private String name;
@@ -28,6 +30,7 @@ public final class FoodComponent implements IUnit {
 	 * @param quantity
 	 */
 	public FoodComponent(String recipeID, String unitID, String name, double quantity) {
+		this.foodComponentID = UUID.randomUUID().toString();
 		this.recipeID = recipeID;
 		this.unitID = unitID;
 		this.name = name;
@@ -117,4 +120,20 @@ public final class FoodComponent implements IUnit {
 		
 		return new ArrayList<Unit>();
 	}
+
+	/**
+	 * @return the foodComponentID
+	 */
+	public String getFoodComponentID() {
+		return foodComponentID;
+	}
+
+	/**
+	 * @param foodComponentID the foodComponentID to set
+	 */
+	public void setFoodComponentID(String foodComponentID) {
+		this.foodComponentID = foodComponentID;
+	}
+	
+	
 }

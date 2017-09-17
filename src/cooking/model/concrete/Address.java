@@ -3,6 +3,8 @@
  */
 package cooking.model.concrete;
 
+import java.util.UUID;
+
 /**
  * @author Van Gia Luat Nguyen
  *
@@ -30,8 +32,8 @@ public class Address {
 	 * @param state
 	 * @param country
 	 */
-	public Address(String addressID, String address1, String address2, String city, String zipcode, String state, String country) {
-		this.addressID = addressID;
+	public Address(String address1, String address2, String city, String zipcode, String state, String country) {
+		this.addressID = UUID.randomUUID().toString();
 		this.address1 = address1;
 		this.address2 = address2;
 		this.city = city;

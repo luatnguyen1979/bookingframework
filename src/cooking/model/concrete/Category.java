@@ -5,6 +5,7 @@ package cooking.model.concrete;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author Van Gia Luat Nguyen
@@ -28,8 +29,8 @@ public final class Category {
 	 * @param name
 	 * @param description
 	 */
-	public Category(String categoryID, String name, String description) {
-		this.categoryID = categoryID;
+	public Category(String name, String description) {
+		this.categoryID = UUID.randomUUID().toString();
 		this.name = name;
 		this.description = description;
 		this.recipesList = new ArrayList<Recipe>();

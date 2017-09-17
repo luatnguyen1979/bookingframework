@@ -6,6 +6,7 @@ package cooking.model.concrete;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author Van Gia Luat Nguyen
@@ -44,8 +45,8 @@ final public class Profile {
 	 * @param favFoods
 	 * @param favFoodComponents
 	 */
-	Profile(String profileName, String name, String email, LocalDate dob, boolean gender, double height, double weight) {
-		this.profileID = profileName;
+	Profile(String name, String email, LocalDate dob, boolean gender, double height, double weight) {
+		this.profileID = UUID.randomUUID().toString();
 		this.name = name;
 		this.email = email;
 		this.dob = dob;

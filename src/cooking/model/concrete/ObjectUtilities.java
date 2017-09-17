@@ -138,6 +138,14 @@ final public class ObjectUtilities {
 		}
 		return null;
 	}
+	
+	public static List<String> getRecipeNameList() {
+		List<String> list = new ArrayList();
+		for (Recipe recipe : loadRecipeData()) {
+			list.add(recipe.getName());
+		}
+		return list;
+	}
 
 	public static List<FoodComponent> loadFoodComponentData() {
 		ObjectMapper mapper = new ObjectMapper();

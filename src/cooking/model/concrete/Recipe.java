@@ -3,6 +3,8 @@
  */
 package cooking.model.concrete;
 
+import java.util.UUID;
+
 /**
  * @author Van Gia Luat Nguyen
  *
@@ -20,8 +22,8 @@ public class Recipe {
 	/**
 	 * 
 	 */
-	public Recipe(String recipeID, String name, String description, String cookingSteps, String categoryID) {
-		this.recipeID = recipeID;
+	public Recipe(String name, String description, String cookingSteps, String categoryID) {
+		this.recipeID = UUID.randomUUID().toString();
 		this.name = name;
 		this.description = description;
 		this.cookingSteps = cookingSteps;
