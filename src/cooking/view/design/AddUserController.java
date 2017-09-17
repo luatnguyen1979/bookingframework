@@ -104,8 +104,8 @@ public class AddUserController {
 			ff.add(txt_favFood.getText());
 
 			IUserAndProfile uap = UserAndProfileFactory.createUserAndProfile("10", txt_userName.getText(), txt_pswrd.getText(),
-					role, txt_fName.getText() + " " + txt_lName.getText(), txt_email.getText(), dp_birthdate.getValue(),
-					rb_male.isSelected(), h, w, ff);
+					role, txt_fName.getText() + " " + txt_lName.getText(), txt_email.getText(), dp_birthdate.getValue().toString(),
+					rb_male.isSelected()?"Male":"Female", h, w, ff);
 
 			System.out.print(uap.toString());
 			// Convert to Jason

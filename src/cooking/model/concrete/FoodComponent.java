@@ -14,13 +14,14 @@ import cooking.model.concrete.interfaces.*;
  *
  */
 public final class FoodComponent implements IUnit {
-
 	private String foodComponentID;
 	private String recipeID;
 	private String unitID;
 	private String name;
 	private double quantity;
 	private List <String> nutritionFactIDsList;
+	
+	public FoodComponent() {};
 	
 	/**
 	 * 

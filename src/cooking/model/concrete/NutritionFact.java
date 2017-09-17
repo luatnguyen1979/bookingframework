@@ -15,7 +15,11 @@ import cooking.model.concrete.interfaces.IUnit;
  */
 public class NutritionFact implements IUnit {
 	
-	private String nutritionFactID;
+	public NutritionFact() {
+
+	}
+	
+	private String recipeID;
 	private String foodComponentID;
 	private String unitID;
 	private String nutritionID;
@@ -24,8 +28,8 @@ public class NutritionFact implements IUnit {
 	/**
 	 * 
 	 */
-	public NutritionFact(String foodComponentID, String unitID, String nutritionID, double quantity) {
-		this.nutritionFactID = UUID.randomUUID().toString();
+	public NutritionFact(String recipeID, String foodComponentID, String unitID, String nutritionID, double quantity) {
+		this.recipeID = recipeID;
 		this.foodComponentID = foodComponentID;
 		this.unitID = unitID;
 		this.nutritionID = nutritionID;
@@ -93,6 +97,27 @@ public class NutritionFact implements IUnit {
 	public List<Unit> getUnitsList() {
 		
 		return new ArrayList<Unit>();
+	}
+
+	/**
+	 * @return the recipeID
+	 */
+	public String getRecipeID() {
+		return recipeID;
+	}
+
+	/**
+	 * @param recipeID the recipeID to set
+	 */
+	public void setRecipeID(String recipeID) {
+		this.recipeID = recipeID;
+	}
+
+	/**
+	 * @param foodComponentID the foodComponentID to set
+	 */
+	public void setFoodComponentID(String foodComponentID) {
+		this.foodComponentID = foodComponentID;
 	}
 
 }

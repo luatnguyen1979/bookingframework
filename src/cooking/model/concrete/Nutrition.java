@@ -13,6 +13,12 @@ public class Nutrition {
 	private String nutritionID;
 	private String name;
 	private String description;
+	
+	
+
+	public Nutrition() {
+
+	}
 
 	/**
 	 * 

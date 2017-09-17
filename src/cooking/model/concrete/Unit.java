@@ -19,6 +19,11 @@ public final class Unit {
 	private String type;
 
 
+	public Unit() {
+
+	}
+
+
 	/**
 	 * 
 	 * @param unitID

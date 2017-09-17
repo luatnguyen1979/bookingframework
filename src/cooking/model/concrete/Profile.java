@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 /**
  * @author Van Gia Luat Nguyen
  *
@@ -16,8 +19,8 @@ final public class Profile {
 	private String profileID;
 	private String name;
 	private String email;
-	private LocalDate dob;
-	private boolean gender;
+	private String dob;
+	private String gender;
 	private double height;
 	private double weigth;
 	private List<String> favFoods;
@@ -45,7 +48,7 @@ final public class Profile {
 	 * @param favFoods
 	 * @param favFoodComponents
 	 */
-	Profile(String name, String email, LocalDate dob, boolean gender, double height, double weight) {
+	Profile(String name, String email, String dob, String gender, double height, double weight) {
 		this.profileID = UUID.randomUUID().toString();
 		this.name = name;
 		this.email = email;
@@ -103,28 +106,28 @@ final public class Profile {
 	/**
 	 * @return the dob
 	 */
-	public LocalDate getDob() {
+	public String getDob() {
 		return dob;
 	}
 
 	/**
 	 * @param dob the dob to set
 	 */
-	public void setDob(LocalDate dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
 
 	/**
 	 * @return the gender
 	 */
-	public boolean isGender() {
+	public String isGender() {
 		return gender;
 	}
 
 	/**
 	 * @param gender the gender to set
 	 */
-	public void setGender(boolean gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 

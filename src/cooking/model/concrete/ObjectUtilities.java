@@ -24,6 +24,7 @@ final public class ObjectUtilities {
 	private static final String JSON_RECIPE = "recipe.json";
 	private static final String JSON_UNIT = "unit.json";
 	private static final String JSON_FOOD_COMPONENT = "foodcomponent.json";
+	private static final String JSON_NUTRITION = "nutrition.json";
 	private static final String JSON_NUTRITION_FACT = "nutritionfact.json";
 	private static final String JSON_PROFILE = "profile.json";
 	private static final String JSON_USER = "user.json";
@@ -34,47 +35,29 @@ final public class ObjectUtilities {
 	private ObjectUtilities() {
 		// TODO Auto-generated constructor stub
 	}
-
-	/*
-	 * public static List<Address> loadAddressData() { return
-	 * loadObjectData(JSON_ADDRESS);
-	 * 
-	 * }
-	 * 
-	 * public static List<Category> loadCategoryData() { return
-	 * loadObjectData(JSON_CATEGORY);
-	 * 
-	 * }
-	 * 
-	 * public static List<FoodComponent> loadFoodComponentData() { return
-	 * loadObjectData(JSON_FOOD_COMPONENT);
-	 * 
-	 * }
-	 * 
-	 * public static List<NutritionFact> loadNutritionFactData() { return
-	 * loadObjectData(JSON_NUTRITION_FACT);
-	 * 
-	 * }
-	 * 
-	 * public static List<Profile> loadProfileData() { return
-	 * loadObjectData(JSON_PROFILE);
-	 * 
-	 * }
-	 * 
-	 */
-//	 public static List<Recipe> loadRecipeData() { return
-//	  loadObjectData(JSON_RECIPE);
-//	  
-//	  }
 	 
 
 	public static List<Unit> loadUnitData() {
-		return loadObjectData(JSON_UNIT);
+	
+		
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			List<Unit> list = mapper.readValue(new File(PATH + JSON_UNIT), new TypeReference<List<Unit>>() {
+			});
+			return list;
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
 
 	}
 
 	public static List<Unit> loadUnitDataBy(String foodType) {
-		List<Unit> units = loadObjectData(JSON_UNIT);
+		List<Unit> units = loadUnitData();
 		List<Unit> newList = new ArrayList<Unit>();
 		for (Unit unit : units) {
 			if (foodType.equals(unit.getType())) {
@@ -86,7 +69,19 @@ final public class ObjectUtilities {
 	}
 
 	public static List<User> loadUserData() {
-		return loadObjectData(JSON_USER);
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			List<User> list = mapper.readValue(new File(PATH + JSON_USER), new TypeReference<List<User>>() {
+			});
+			return list;
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
 
 	}
 
@@ -138,14 +133,6 @@ final public class ObjectUtilities {
 		}
 		return null;
 	}
-	
-	public static List<String> getRecipeNameList() {
-		List<String> list = new ArrayList();
-		for (Recipe recipe : loadRecipeData()) {
-			list.add(recipe.getName());
-		}
-		return list;
-	}
 
 	public static List<FoodComponent> loadFoodComponentData() {
 		ObjectMapper mapper = new ObjectMapper();
@@ -181,6 +168,23 @@ final public class ObjectUtilities {
 
 	}
 
+	public static List<Nutrition> loadNutritionData() {
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			List<Nutrition> list = mapper.readValue(new File(PATH + JSON_NUTRITION), new TypeReference<List<Nutrition>>() {
+			});
+			return list;
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+
+	}
+	
 	public static List<NutritionFact> loadNutritionFactData() {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
@@ -340,6 +344,18 @@ final public class ObjectUtilities {
 		}
 		saveNutritionFactData(list);
 	}
+	
+	public static void updateNutrition(Nutrition obj) {
+		List<Nutrition> list = loadNutritionData();
+		for (int i = 0; i < list.size(); i++) {
+			if (obj.getNutritionID().equals(list.get(i).getNutritionID()))
+					 {
+				list.set(i, obj);
+
+			}
+		}
+		saveNutritionData(list);
+	}
 
 	public static void updateProfile(Profile obj) {
 		List<Profile> list = loadProfileData();
@@ -407,6 +423,12 @@ final public class ObjectUtilities {
 		saveFoodComponentData(list);
 	}
 
+	public static void insertNutrition(Nutrition obj) {
+		List<Nutrition> list = loadNutritionData();
+		list.add(obj);
+		saveNutritionData(list);
+	}
+	
 	public static void insertNutritionFact(NutritionFact obj) {
 		List<NutritionFact> list = loadNutritionFactData();
 		list.add(obj);
@@ -482,6 +504,17 @@ final public class ObjectUtilities {
 		}
 		saveNutritionFactData(list);
 	}
+	
+	public static void removeNutrition(String ID) {
+		List<Nutrition> list = loadNutritionData();
+		for (int i = 0; i < list.size(); i++) {
+			if (ID.equals(list.get(i).getNutritionID())) {
+				list.remove(i);
+
+			}
+		}
+		saveNutritionData(list);
+	}
 
 	public static void removeProfile(String ID) {
 		List<Profile> list = loadProfileData();
@@ -527,7 +560,7 @@ final public class ObjectUtilities {
 		saveUserData(list);
 	}
 
-	private static <T> ArrayList<T> loadObjectData(String fileName) {
+	/*private static <T> ArrayList<T> loadObjectData(String fileName) {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			ArrayList<T> list = mapper.readValue(new File(PATH + fileName), new TypeReference<ArrayList<T>>() {
@@ -541,9 +574,9 @@ final public class ObjectUtilities {
 			e.printStackTrace();
 		}
 		return new ArrayList<T>();
-	}
+	}*/
 
-	public static void saveCategoryData(List<Category> list) {
+	private static void saveCategoryData(List<Category> list) {
 
 		ObjectMapper mapper = new ObjectMapper();
 
@@ -561,7 +594,7 @@ final public class ObjectUtilities {
 		}
 	}
 
-	public static void saveRecipeData(List<Recipe> list) {
+	private static void saveRecipeData(List<Recipe> list) {
 
 		ObjectMapper mapper = new ObjectMapper();
 
@@ -579,7 +612,7 @@ final public class ObjectUtilities {
 		}
 	}
 
-	public static void saveAddressData(List<Address> list) {
+	private static void saveAddressData(List<Address> list) {
 
 		ObjectMapper mapper = new ObjectMapper();
 
@@ -597,7 +630,7 @@ final public class ObjectUtilities {
 		}
 	}
 
-	public static void saveFoodComponentData(List<FoodComponent> list) {
+	private static void saveFoodComponentData(List<FoodComponent> list) {
 
 		ObjectMapper mapper = new ObjectMapper();
 
@@ -615,7 +648,7 @@ final public class ObjectUtilities {
 		}
 	}
 
-	public static void saveNutritionFactData(List<NutritionFact> list) {
+	private static void saveNutritionFactData(List<NutritionFact> list) {
 
 		ObjectMapper mapper = new ObjectMapper();
 
@@ -632,8 +665,26 @@ final public class ObjectUtilities {
 			e.printStackTrace();
 		}
 	}
+	
+	private static void saveNutritionData(List<Nutrition> list) {
 
-	public static void saveProfileData(List<Profile> list) {
+		ObjectMapper mapper = new ObjectMapper();
+
+		try {
+			mapper.writeValue(new File(PATH + JSON_NUTRITION), list);
+
+			System.out.println(list);
+
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void saveProfileData(List<Profile> list) {
 
 		ObjectMapper mapper = new ObjectMapper();
 
@@ -651,7 +702,7 @@ final public class ObjectUtilities {
 		}
 	}
 
-	public static void saveUnitData(List<Unit> list) {
+	private static void saveUnitData(List<Unit> list) {
 
 		ObjectMapper mapper = new ObjectMapper();
 
@@ -669,7 +720,7 @@ final public class ObjectUtilities {
 		}
 	}
 
-	public static void saveUserData(List<User> list) {
+	private static void saveUserData(List<User> list) {
 
 		ObjectMapper mapper = new ObjectMapper();
 
