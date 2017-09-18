@@ -13,6 +13,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import cooking.view.design.MainApp;
+import javafx.scene.image.Image;
+
 /**
  * @author Van Gia Luat Nguyen
  *
@@ -795,4 +798,6 @@ final public class ObjectUtilities {
 			e.printStackTrace();
 		}
 	}
+	
+	
 }

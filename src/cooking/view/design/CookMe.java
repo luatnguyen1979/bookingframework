@@ -21,7 +21,7 @@ public class CookMe extends Application {
     @Override
     public void start(Stage stage) throws Exception {
     	this.primaryStage = stage;
-        Parent root = FXMLLoader.load(getClass().getResource("FirstScreen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Template.fxml"));
         
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);

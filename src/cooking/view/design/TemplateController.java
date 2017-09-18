@@ -1,45 +1,41 @@
 package cooking.view.design;
 
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Accordion;
-import javafx.scene.control.Button;
-
-import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import cooking.model.concrete.Category;
 import cooking.model.concrete.ObjectUtilities;
 import cooking.model.concrete.Recipe;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.MenuItem;
-
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
-import javafx.util.Callback;
 import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
 
 public class TemplateController {
-	@FXML	private BorderPane bp_mainWindow;
-	@FXML	private MenuItem mi_close;
-	@FXML	private MenuItem mi_searchByRecipe;
-	@FXML	private MenuItem mi_searchByFoodComponent;
-	@FXML	private Menu menu_Category;
-	@FXML	private MenuItem menuItem_addCategory;
-	@FXML	private Label lbl_username;
-	@FXML	private TextField txt_searchByRecipe;
-	@FXML	private Button btn_SearchByRecipe;
-	@FXML	private Button btn_SearchByComponent;
-	@FXML	private TextField txt_searchByComponent;
+	@FXML private BorderPane bp_mainWindow;
+	@FXML private MenuItem mi_close;
+	@FXML private MenuItem mi_searchByRecipe;
+	@FXML private MenuItem mi_searchByFoodComponent;
+	@FXML private Menu menu_Category;
+	@FXML private MenuItem menuItem_addCategory;
+	@FXML private Label lbl_username;
+	@FXML private TextField txt_searchByRecipe;
+	@FXML private Button btn_SearchByRecipe;
+	@FXML private Button btn_SearchByComponent;
+	@FXML private TextField txt_searchByComponent;
+	@FXML private TableView<Recipe> tv_searchresults;
+	@FXML private TableColumn<Recipe, String> tc_recipe;
+	@FXML private TableColumn<Recipe, String> tc_no;
 
 
 	// Event Listener on MenuItem[#mi_close].onAction
@@ -48,7 +44,7 @@ public class TemplateController {
 	}
 	
 	// Event Listener on Menu[#menu_Category].onAction
-	@FXML 	public void getCategory(ActionEvent event) {
+	@FXML public void getCategory(ActionEvent event) {
 		
 		//menu_Category.setText("Hii There");
 	}
@@ -61,14 +57,70 @@ public class TemplateController {
 	// Event Listener on Button[#btn_SearchByRecipe].onAction
 	@FXML
 	public void handleButtonClick(ActionEvent event) throws Exception {
-		@SuppressWarnings("unused")
-		Stage st;
-		Parent root = null;
-		if (event.getSource() == btn_SearchByRecipe) {
-			st = (Stage) btn_SearchByRecipe.getScene().getWindow();
-			FXMLLoader loader= new FXMLLoader(getClass().getResource("RecipeList.fxml"));
-			root = (Parent)loader.load();
-			bp_mainWindow.setCenter(root);
+		
+
+		/*	List<Recipe> recipes = ObjectUtilities.loadRecipeData();
+			ObservableList<Recipe> data = FXCollections.observableList(recipes);
+			
+			tv_searchresults.setItems(data);
+*/
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		//}	
+		
+		
+		/*final TableView<Recipe> employeeTableView = new TableView<>();
+	    employeeTableView.setPrefWidth(300);
+
+	    employeeTableView.setItems(data);
+
+	    TableColumn<Recipe, String> aliasNameCol = new TableColumn<>("ID");
+	    TableColumn<Recipe, String> firstNameCol = new TableColumn<>("Name");
+	    TableColumn<Recipe, String> lastNameCol = new TableColumn<>("Description");
+
+	    aliasNameCol.setEditable(true);
+
+	    aliasNameCol.setPrefWidth(employeeTableView.getPrefWidth() / 3);
+	    firstNameCol.setPrefWidth(employeeTableView.getPrefWidth() / 3);
+	    lastNameCol.setPrefWidth(employeeTableView.getPrefWidth() / 3);
+
+	    aliasNameCol.setCellValueFactory(new PropertyValueFactory<Recipe,String>("recipeID"));
+	    firstNameCol.setCellValueFactory(new PropertyValueFactory<Recipe,String>("name"));
+	    lastNameCol.setCellValueFactory(new PropertyValueFactory<Recipe,String>("description"));
+
+	    employeeTableView.getColumns().setAll(aliasNameCol, firstNameCol,
+	        lastNameCol);
+			
+			
+		
+		tv_searchresults = employeeTableView;
+		tv_searchresults.refresh();*/
+	}
+	
+	@FXML
+	private void initialize() {
+		List<Category> lc = ObjectUtilities.loadCategoryData();
+		for(Category c: lc) {
+			MenuItem mi = new MenuItem(c.getName());
+			
+			mi.setOnAction(new EventHandler<ActionEvent>() {
+	            public void handle(ActionEvent t) {
+	                //shuffle();
+	                //vbox.setVisible(true);
+	            }
+	        });
+			menu_Category.getItems().addAll(mi);
 		}
+		
+		//tc_recipe.setCellValueFactory(new PropertyValueFactory<Recipe, String>("description"));
+		//tc_no.setCellValueFactory(new PropertyValueFactory<Recipe, String>("recipeID"));
+
 	}
 }

@@ -21,16 +21,16 @@ public class Test {
 		uniqueID = UUID.randomUUID().toString();
 		System.out.println(uniqueID);
 		uniqueID = UUID.randomUUID().toString();
-		System.out.println(uniqueID);
-		uniqueID = UUID.randomUUID().toString();
-		System.out.println(uniqueID);
-		uniqueID = UUID.randomUUID().toString();
-		System.out.println(uniqueID);
-		uniqueID = UUID.randomUUID().toString();
-		System.out.println(uniqueID);
-		uniqueID = UUID.randomUUID().toString();
 		System.out.println(uniqueID);*/
 		String uniqueID = UUID.randomUUID().toString();
+		System.out.println(uniqueID);
+		uniqueID = UUID.randomUUID().toString();
+		System.out.println(uniqueID);
+		uniqueID = UUID.randomUUID().toString();
+		System.out.println(uniqueID);
+		uniqueID = UUID.randomUUID().toString();
+		System.out.println(uniqueID);
+		 uniqueID = UUID.randomUUID().toString();
 		System.out.println(uniqueID);
 		uniqueID = UUID.randomUUID().toString();
 		System.out.println(uniqueID);

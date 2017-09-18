@@ -2,19 +2,49 @@
 	{
 		"categoryID": "a5d09e99-e137-4206-a54b-a049bd64098c",
 		"name": "Chinese Food",
-		"description": "This is China's food====Test====Test",
+		"description": "This is China's food",
 		"recipesList": null
 	},
 	{
 		"categoryID": "8dcbcbd2-c179-4d6b-abb2-8ec08829d4c5",
 		"name": "Thai Food",
-		"description": "This is Thailand's food====Test====Test",
+		"description": "This is Thailand's food",
+		"recipesList": null
+	},
+	{
+		"categoryID": "bf507aa5-fb15-44e3-8eaa-7c3a960e6c79",
+		"name": "Vietnamse Food",
+		"description": "This is Vietnamse's food",
+		"recipesList": null
+	},
+	{
+		"categoryID": "5429ef8b-bc36-4be8-a9c4-2ab2fd3dae22",
+		"name": "Mexican Food",
+		"description": "This is Mexican's food",
 		"recipesList": null
 	},
 	{
 		"categoryID": "8dcbcbd2-c179-4d6b-abb2-8ec08829d4c5",
-		"name": "Thai Food",
-		"description": "This is Thailand's food====Test====Test",
+		"name": "Indian Food",
+		"description": "This is Indian's food",
+		"recipesList": null
+	},
+	{
+		"categoryID": "230519e4-036b-4541-9bbb-415b679ae974",
+		"name": "Italian Food",
+		"description": "This is Italian's food",
+		"recipesList": null
+	},
+	{
+		"categoryID": "3d0c4e89-6632-4f3d-b9f0-24b880229b35",
+		"name": "Janpanese Food",
+		"description": "This is Janpanese's food",
+		"recipesList": null
+	},
+	{
+		"categoryID": "a6f9ff5a-23c5-4735-95c3-614206bf3612",
+		"name": "Korean Food",
+		"description": "This is Korean's food",
 		"recipesList": null
 	}
 ]

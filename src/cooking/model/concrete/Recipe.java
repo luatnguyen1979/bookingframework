@@ -100,6 +100,21 @@ public class Recipe {
 		this.categoryID = categoryID;
 	}
 	
-	
+	 private int no;
+
+
+		/**
+		 * @return the no
+		 */
+		public int getNo() {
+			return no;
+		}
+
+		/**
+		 * @param no the no to set
+		 */
+		public void setNo(int no) {
+			this.no = no;
+		}
 
 }
