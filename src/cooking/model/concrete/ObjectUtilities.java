@@ -1,11 +1,12 @@
 /**
- * This the java source code of Cooking System @ MPP class, 2017
+l * This the java source code of Cooking System @ MPP class, 2017
  */
 package cooking.model.concrete;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
@@ -563,12 +564,52 @@ final public class ObjectUtilities {
 		saveUserData(list);
 	}
 
-	/*private static <T> ArrayList<T> loadObjectData(String fileName) {
+	public static <T> List<? extends Object> loadObjectData(Class<? extends Object> classToFind) {
 		ObjectMapper mapper = new ObjectMapper();
+
 		try {
-			ArrayList<T> list = mapper.readValue(new File(PATH + fileName), new TypeReference<ArrayList<T>>() {
-			});
-			return list;
+			if(classToFind.isAssignableFrom(Category.class))
+			{
+				List<Category> list = Arrays.asList(mapper.readValue(new File(PATH + JSON_CATEGORY), Category[].class));
+				return list;
+			}
+			else if(classToFind.isAssignableFrom(Recipe.class))
+			{
+				List<Recipe> list = Arrays.asList(mapper.readValue(new File(PATH + JSON_RECIPE), Recipe[].class));
+				return list;
+			}
+			else if(classToFind.isAssignableFrom(FoodComponent.class))
+			{
+				List<FoodComponent> list = Arrays.asList(mapper.readValue(new File(PATH + JSON_FOOD_COMPONENT), FoodComponent[].class));
+				return list;
+			}
+			else if(classToFind.isAssignableFrom(Address.class))
+			{
+				List<Address> list = Arrays.asList(mapper.readValue(new File(PATH + JSON_ADDRESS), Address[].class));
+				return list;
+			}
+			else if(classToFind.isAssignableFrom(User.class))
+			{
+				List<User> list = Arrays.asList(mapper.readValue(new File(PATH + JSON_USER), User[].class));
+				return list;
+			}
+			else if(classToFind.isAssignableFrom(Unit.class))
+			{
+				List<Unit> list = Arrays.asList(mapper.readValue(new File(PATH + JSON_UNIT), Unit[].class));
+				return list;
+			}
+			else if(classToFind.isAssignableFrom(NutritionFact.class))
+			{
+				List<NutritionFact> list = Arrays.asList(mapper.readValue(new File(PATH + JSON_NUTRITION_FACT), NutritionFact[].class));
+				return list;
+			}
+			else if(classToFind.isAssignableFrom(Profile.class))
+			{
+				List<Profile> list = Arrays.asList(mapper.readValue(new File(PATH + JSON_PROFILE), Profile[].class));
+				return list;
+			}
+			//List<FoodComponent> list = Arrays.asList(mapper.readValue(new File(PATH + JSON_FOOD_COMPONENT), FoodComponent[].class));
+			//return list;
 		} catch (JsonGenerationException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {
@@ -577,7 +618,7 @@ final public class ObjectUtilities {
 			e.printStackTrace();
 		}
 		return new ArrayList<T>();
-	}*/
+	}
 
 	private static void saveCategoryData(List<Category> list) {
 

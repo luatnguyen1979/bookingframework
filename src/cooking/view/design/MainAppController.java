@@ -6,6 +6,7 @@ package cooking.view.design;
 import java.util.List;
 import java.util.Optional;
 
+import cooking.model.concrete.Category;
 import cooking.model.concrete.ObjectUtilities;
 import cooking.model.concrete.Recipe;
 import javafx.beans.value.ChangeListener;
@@ -181,7 +182,10 @@ public class MainAppController {
     @FXML
     private void initialize() {
     	showPersonDetails(null);
-    	List<Recipe> list = ObjectUtilities.loadRecipeData();
+    	//List<Recipe> list = ObjectUtilities.loadRecipeData();
+    	List<Recipe> list = (List<Recipe>)ObjectUtilities.loadObjectData(Recipe.class);
+    	
+    	
     	int i = 1;
 		for (Recipe recipe : list) {
 			recipe.setNo(i ++);
