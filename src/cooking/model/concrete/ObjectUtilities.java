@@ -238,7 +238,7 @@ final public class ObjectUtilities {
 		return newList;
 	}
 
-	public static List<NutritionFact> getNutritionFactsByFoodComponentID(String ID) {
+	/*public static List<NutritionFact> getNutritionFactsByFoodComponentID(String ID) {
 		List<NutritionFact> list = loadNutritionFactData();
 		List<NutritionFact> newList = new ArrayList<NutritionFact>();
 		for (NutritionFact item : list) {
@@ -247,7 +247,7 @@ final public class ObjectUtilities {
 			}
 		}
 		return newList;
-	}
+	}*/
 
 	public static List<Recipe> getRecipeByName(String name) {
 		List<Recipe> lr = loadRecipeData();
@@ -337,7 +337,7 @@ final public class ObjectUtilities {
 		saveFoodComponentData(list);
 	}
 
-	public static void updateNutritionFact(NutritionFact obj) {
+	/*public static void updateNutritionFact(NutritionFact obj) {
 		List<NutritionFact> list = loadNutritionFactData();
 		for (int i = 0; i < list.size(); i++) {
 			if (obj.getFoodComponentID().equals(list.get(i).getFoodComponentID())
@@ -347,7 +347,7 @@ final public class ObjectUtilities {
 			}
 		}
 		saveNutritionFactData(list);
-	}
+	}*/
 	
 	public static void updateNutrition(Nutrition obj) {
 		List<Nutrition> list = loadNutritionData();
@@ -498,7 +498,7 @@ final public class ObjectUtilities {
 		saveFoodComponentData(list);
 	}
 
-	public static void removeNutritionFact(String ID) {
+	/*public static void removeNutritionFact(String ID) {
 		List<NutritionFact> list = loadNutritionFactData();
 		for (int i = 0; i < list.size(); i++) {
 			if (ID.equals(list.get(i).getFoodComponentID()) && ID.equals(list.get(i).getUnitID())) {
@@ -507,7 +507,7 @@ final public class ObjectUtilities {
 			}
 		}
 		saveNutritionFactData(list);
-	}
+	}*/
 	
 	public static void removeNutrition(String ID) {
 		List<Nutrition> list = loadNutritionData();

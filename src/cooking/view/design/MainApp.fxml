@@ -502,9 +502,10 @@
                   </GridPane>
                   <HBox alignment="BOTTOM_RIGHT" layoutX="539.0" layoutY="839.0" spacing="10.0">
                      <children>
-                        <Button layoutX="357.0" layoutY="759.0" mnemonicParsing="false" onAction="#handleAddRecipe" text="New..." />
-                        <Button layoutX="437.0" layoutY="759.0" mnemonicParsing="false" onAction="#handleModifyRecipe" text="Edit..." />
-                        <Button layoutX="518.0" layoutY="759.0" mnemonicParsing="false" onAction="#handleDeleteRecipe" text="Delete..." />
+                        <Button fx:id="btnObtain" mnemonicParsing="false" onAction="#handleObtainingPermission" text="Obtain Permissions" />
+                        <Button fx:id="btnNew" layoutX="357.0" layoutY="759.0" mnemonicParsing="false" onAction="#handleAddRecipe" text="New..." />
+                        <Button fx:id="btnEdit" layoutX="437.0" layoutY="759.0" mnemonicParsing="false" onAction="#handleModifyRecipe" text="Edit..." />
+                        <Button fx:id="btnDelete" layoutX="518.0" layoutY="759.0" mnemonicParsing="false" onAction="#handleDeleteRecipe" text="Delete..." />
                      </children>
                      <padding>
                         <Insets right="5.0" />

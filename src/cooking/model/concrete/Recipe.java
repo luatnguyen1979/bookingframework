@@ -4,6 +4,7 @@
 package cooking.model.concrete;
 
 import java.util.UUID;
+import java.util.*;
 
 /**
  * @author Van Gia Luat Nguyen
@@ -14,20 +15,41 @@ public class Recipe {
 	private String name;
 	private String description;
 	private String cookingSteps;
+	private List<String> ingredient;
+	private String image;
 	private String categoryID;
+	private NutritionFact nutritionFact;
 	
+	/**
+	 * @return the nutritionFact
+	 */
+	public NutritionFact getNutritionFact() {
+		return nutritionFact;
+	}
+
+
+	/**
+	 * @param nutritionFact the nutritionFact to set
+	 */
+	public void setNutritionFact(NutritionFact nutritionFact) {
+		this.nutritionFact = nutritionFact;
+	}
+
+
 	public Recipe() {}
 	
 
 	/**
 	 * 
 	 */
-	public Recipe(String name, String description, String cookingSteps, String categoryID) {
+	public Recipe(String name, String description, String cookingSteps, String image, String categoryID) {
 		this.recipeID = UUID.randomUUID().toString();
 		this.name = name;
 		this.description = description;
 		this.cookingSteps = cookingSteps;
+		this.image = image;
 		this.categoryID = categoryID;
+		this.ingredient = new ArrayList<String>();
 	}
 
 	/**
@@ -116,5 +138,39 @@ public class Recipe {
 		public void setNo(int no) {
 			this.no = no;
 		}
+
+
+		/**
+		 * @return the image
+		 */
+		public String getImage() {
+			return image;
+		}
+
+
+		/**
+		 * @param image the image to set
+		 */
+		public void setImage(String image) {
+			this.image = image;
+		}
+
+
+		/**
+		 * @return the ingredient
+		 */
+		public List<String> getIngredient() {
+			return ingredient;
+		}
+
+
+		/**
+		 * @param ingredient the ingredient to set
+		 */
+		public void setIngredient(List<String> ingredient) {
+			this.ingredient = ingredient;
+		}
+		
+		
 
 }
