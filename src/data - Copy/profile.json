@@ -1,0 +1,27 @@
+[{
+"profileID": "61a0a6d4-7824-4754-8697-198ae9d17243",
+"name":"Luat Nguyen",
+"email":"vglnguyen@mum.edu",
+"dob":"19-01-1979",
+"gender":"male",
+"height":"5",
+"weigth": "160"
+},
+{
+"profileID": "61a0a6d4-7824-4754-8697-198ae9d17243",
+"name":"Ramy Badaway",
+"email":"rbadaway@mum.edu",
+"dob":"01-01-1980",
+"gender":"male",
+"height":"5",
+"weigth": "140"
+},
+{
+"profileID": "61a0a6d4-7824-4754-8697-198ae9d17243",
+"name":"Normal User",
+"email":"normal@mum.edu",
+"dob":"01-01-1985",
+"gender":"feemail",
+"height":"5",
+"weigth": "135"
+}]

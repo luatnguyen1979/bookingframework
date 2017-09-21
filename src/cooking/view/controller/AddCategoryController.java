@@ -1,4 +1,4 @@
-package cooking.view.design;
+package cooking.view.controller;
 
 import javafx.fxml.FXML;
 

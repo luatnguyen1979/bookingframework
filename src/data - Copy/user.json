@@ -1,0 +1,20 @@
+[{
+"userID": "5fce70cc-c973-463f-a7f9-669a6a46eece",
+"userName":"luatnguyen",
+"password":"luatnguyen",
+"role":"Admin"
+},
+{
+"userID": "c23a0731-dfbd-49a6-9ea7-e774891e1333",
+"userName":"ramybadaway",
+"password": "ramybadaway",
+"role":"Admin"
+},
+{
+"userID": "71cb0242-20c7-450c-857e-f4157d294f6f",
+"userName":"guest",
+"password":"guest",
+"role":"User"
+}]
+
+

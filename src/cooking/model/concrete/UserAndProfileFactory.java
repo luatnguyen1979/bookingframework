@@ -1,6 +1,5 @@
 package cooking.model.concrete;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public final class UserAndProfileFactory {

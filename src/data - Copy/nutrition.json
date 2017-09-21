@@ -1,0 +1,82 @@
+[{
+"nutritionID": "1aeec619-b3cf-4494-8cd2-37e55631853e",
+"name":"Calories",
+"description":""},
+{
+"nutritionID": "664fc40e-e14b-4daf-9d83-58869f5a1af5",
+"name":"Total Fat",
+"description":""},
+{
+"nutritionID": "4c0fbd58-82dc-4098-9142-6a4b4f559ac4",
+"name":"Saturated fat",
+"description":""},
+{
+"nutritionID": "3e8b7e06-00b2-4173-9a8f-89b75e39f13c",
+"name":"Polyunsaturated fat",
+"description":""},
+{
+"nutritionID": "07c7cdf3-7792-4140-921c-8edee6e58c58",
+"name":"Monounsaturated fat",
+"description":""},
+{
+"nutritionID": "31dd54d6-5ab3-4295-9641-7f77d721c488",
+"name":"Cholesterol",
+"description":""},
+{
+"nutritionID": "e33333e4-b910-4290-b539-fd2fe931337e",
+"name":"Sodium",
+"description":""},
+{
+"nutritionID": "70db40f7-97c9-40ba-a30c-4b22d6c4ec8b",
+"name":"Potassium",
+"description":""},
+{
+"nutritionID": "ea687367-fc72-4df4-acef-7807de8b7655",
+"name":"Total Carbohydrate",
+"description":""},
+{
+"nutritionID": "b1501582-63a6-4b94-9aa3-c16676535c10",
+"name":"Dietary fiber",
+"description":""},
+{
+"nutritionID": "3e02515a-58be-4013-b0ee-cc5eb8e0ce14",
+"name":"Sugar",
+"description":""},
+{
+"nutritionID": "914765c9-f6d6-40a3-a477-0689b5a7fe84",
+"name":"Protein",
+"description":""},
+{
+"nutritionID": "97018639-4e2b-49b7-a009-4ef73105502c",
+"name":"Vitamin A",
+"description":""},
+{
+"nutritionID": "562fad52-5643-405f-9531-745aebcdfcd5",
+"name":"Vitamin C",
+"description":""},
+{
+"nutritionID": "997d2ffc-f643-4d0d-b246-45111f95f92d",
+"name":"Calcium",
+"description":""},
+{
+"nutritionID": "1e2c9111-a486-48dc-b649-71d6f7da3322",
+"name":"Iron",
+"description":""},
+{
+"nutritionID": "5854ee2a-47e8-49c9-b769-855877dc8ab8",
+"name":"Vitamin D",
+"description":""},
+{
+"nutritionID": "db9fd0e1-50fe-4f06-88d6-5314748ca61b",
+"name":"Vitamin B-6",
+"description":""},
+{
+"nutritionID": "a024d151-40fa-430f-9314-583ce6d63f67",
+"name":"Vitamin B-12",
+"description":""},
+{
+"nutritionID": "1d03e5bf-7539-4d7c-b10d-86320bf6c7ea",
+"name":"Magnesium",
+"description":""}
+
+]

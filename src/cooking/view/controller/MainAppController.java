@@ -1,7 +1,7 @@
 /**
  * This the java source code of Cooking System @ MPP class, 2017
  */
-package cooking.view.design;
+package cooking.view.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,6 +11,7 @@ import java.util.Optional;
 import cooking.model.concrete.NutritionFact;
 import cooking.model.concrete.ObjectUtilities;
 import cooking.model.concrete.Recipe;
+import cooking.view.design.MainApp;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -250,10 +251,11 @@ public class MainAppController {
           @Override
           public void changed(ObservableValue<? extends Recipe> observable,
               Recipe oldValue, Recipe newValue) {
+        	  currentID = newValue.getRecipeID();
         	  int selectedIndex = recipeTable.getSelectionModel().getSelectedIndex();
         	  if (selectedIndex >= 0)
         	  setRecipeDetailValues(newValue, selectedIndex);
-        	  currentID = newValue.getRecipeID();
+        	  
         	  
           }
         });
@@ -261,15 +263,21 @@ public class MainAppController {
     	//showPersonDetails(null);
     }
     
-    @FXML
+ /*   @FXML
 	private void handleSelectionRow() {
 
-	}
+	}*/
     
     
 	private void setRecipeDetailValues(Recipe recipe, int index) {
 		
-			Image image = new Image(MainApp.class.getResourceAsStream(recipe.getImage()));
+			Image image = null;
+			try {
+				image = new Image(MainApp.class.getResourceAsStream(recipe.getImage()));
+			}
+			catch (Exception ex) {
+				System.out.println("Invalid Image");
+			}
 		//Image image = new Image(recipe.getImage());
 			img.setImage(image);
 
@@ -293,6 +301,7 @@ public class MainAppController {
 	
 	
 	private void setNutrifactValue(NutritionFact nutrifact, int index) {
+		if (nutrifact != null) {
 		lbl0_1.setText(nutrifact.getAmountPer());
 		lbl1_1.setText(nutrifact.getCalories());
 		lbl3_1.setText(nutrifact.getTotalFat());
@@ -315,7 +324,7 @@ public class MainAppController {
 		lbl16_3.setText(nutrifact.getIron());
 		lbl17_3.setText(nutrifact.getVitaminB6());
 		lbl18_3.setText(nutrifact.getMagnesium());
-		
+		}
 		if (index % 2 == 1) {
 
 			lbl3_3.setText("18%");

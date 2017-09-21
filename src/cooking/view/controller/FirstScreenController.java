@@ -1,4 +1,4 @@
-package cooking.view.design;
+package cooking.view.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

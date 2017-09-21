@@ -3,6 +3,7 @@ package cooking.view.design;
 import java.io.IOException;
 
 import cooking.model.concrete.Recipe;
+import cooking.view.controller.MainAppController;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

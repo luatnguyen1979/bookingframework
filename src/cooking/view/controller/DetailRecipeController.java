@@ -1,7 +1,7 @@
 /**
  * This the java source code of Cooking System @ MPP class, 2017
  */
-package cooking.view.design;
+package cooking.view.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,6 +13,7 @@ import java.util.UUID;
 import cooking.model.concrete.Category;
 import cooking.model.concrete.ObjectUtilities;
 import cooking.model.concrete.Recipe;
+import cooking.view.design.MainApp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -157,16 +158,39 @@ public class DetailRecipeController {
 	@FXML
 	private void handleSavingRecipe() {
 		Recipe recipe = new Recipe();
-		recipe.setRecipeID(UUID.randomUUID().toString());
+		//String ID;
 		recipe.setName( txtName.getText());
 		recipe.setDescription(txtDescription.getText());
+		Image image = imageView.getImage();
+		String path = "";
+		if (image != null) {
+			path = image.impl_getUrl();
+		}
+
+		//path = path.substring(index + 7);
+		imagePath = path;
+		
+		
+		
+		
 		recipe.setImage(imagePath);
 		recipe.setCategoryID(getCategoryID(cboCategory.getSelectionModel().getSelectedItem().toString()));
 	/*	List<Recipe> recipes = ObjectUtilities.loadRecipeData();
 		recipes.add(recipe);*/
 
 		recipe.setIngredient(new ArrayList<String>(listIngr.getItems()));
-		ObjectUtilities.insertRecipe(recipe);
+		if (MainAppController.currentID != null) {
+			 recipe.setRecipeID(MainAppController.currentID);
+			 ObjectUtilities.updateRecipe(recipe);
+		}
+		else {
+			//ID = UUID.randomUUID().toString();
+			recipe.setRecipeID(UUID.randomUUID().toString());
+			ObjectUtilities.insertRecipe(recipe);
+		}
+		
+		
+		//ObjectUtilities.insertRecipe(recipe);
 		
 		Alert alert = new Alert(AlertType.INFORMATION);
 
@@ -227,7 +251,11 @@ public class DetailRecipeController {
 			Recipe recipe = ObjectUtilities.getRecipeID(MainAppController.currentID);
 			txtName.setText(recipe.getName());
 			txtDescription.setText(recipe.getDescription());
-			Image image = new Image(MainApp.class.getResourceAsStream(recipe.getImage()));
+			Image image = null;
+			try {
+				image = new Image(MainApp.class.getResourceAsStream(recipe.getImage()));
+			}
+			catch(Exception ex) {}
     		
         	imageView.setImage(image);
         	//List<String>

@@ -1,7 +1,7 @@
 /**
  * This the java source code of Cooking System @ MPP class, 2017
  */
-package cooking.view.design;
+package cooking.view.controller;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
