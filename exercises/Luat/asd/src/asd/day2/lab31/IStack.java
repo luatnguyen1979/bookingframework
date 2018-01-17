@@ -8,11 +8,8 @@ package asd.day2.lab31;
  *
  */
 public interface IStack <T> {
-	/**
-	 * Returns the object at the top of the Stack without removing it.
-	 * 
-	 */
-	public T peek();
+
+	public boolean isEmpty();
 	
 	/**
 	 * 

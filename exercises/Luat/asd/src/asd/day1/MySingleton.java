@@ -4,5 +4,9 @@ public enum MySingleton {
     private MySingleton() {
         System.out.println("Initiate the My Singleton");
     }
+    
+    public static void getString() {
+    		System.out.println("This is get String"); 
+    }
 }
 

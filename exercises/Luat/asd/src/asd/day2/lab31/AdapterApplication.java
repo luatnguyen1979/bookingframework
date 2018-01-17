@@ -15,8 +15,16 @@ public class AdapterApplication {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		AdapterCollection app = new AdapterCollection();
+
+		Adapter ada = new Adapter();
+		ada.push("test");
+		ada.enqueue("obj");
+		ada.push("test1");
+		ada.enqueue("obj1");
+		
+		while (!ada.isEmpty()) {
+			System.out.println(ada.dequeue());
+		}
 
 	}
 

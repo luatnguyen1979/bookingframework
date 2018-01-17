@@ -14,7 +14,7 @@ public interface IQueue <T> {
 	 * @param obj
 	 * @return
 	 */
-	public T enqueue(T obj);
+	public void enqueue(T obj);
 	
 	/**
 	 * Remove the first object and return the object
@@ -27,6 +27,6 @@ public interface IQueue <T> {
 	 * 
 	 * @return
 	 */
-	public T get();
+	public boolean isEmpty();
 
 }
