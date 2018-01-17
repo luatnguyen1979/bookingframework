@@ -8,9 +8,9 @@ package asd.day2.lab31;
  *
  */
 public class Adaptee {
-	private String[] data;
-	private int start;
-	private int end;
+	private String[] data = new String[1000];
+	private int start = 0;
+	private int end = -1;
 
 	public String startString() {
 		return data[start];
@@ -25,8 +25,9 @@ public class Adaptee {
 	}
 
 	public void add(String str) {
-		data[end] = str;
 		end++;
+		data[end] = str;
+		
 	}
 
 	public void remove(int pos) {
@@ -35,9 +36,20 @@ public class Adaptee {
 		for (int i = pos; i < end; i++) {
 			data[i] = data[i + 1];
 		}
+		end --;
 	}
 
 	public String get(int pos) {
 		return data[pos];
 	}
+
+	public int getStart() {
+		return start;
+	}
+
+	public int getEnd() {
+		return end;
+	}
+	
+	
 }
