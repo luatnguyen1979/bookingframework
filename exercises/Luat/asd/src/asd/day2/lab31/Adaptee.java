@@ -27,7 +27,7 @@ public class Adaptee {
 	public void add(String str) {
 		end++;
 		data[end] = str;
-		
+
 	}
 
 	public void remove(int pos) {
@@ -36,7 +36,7 @@ public class Adaptee {
 		for (int i = pos; i < end; i++) {
 			data[i] = data[i + 1];
 		}
-		end --;
+		end--;
 	}
 
 	public String get(int pos) {
@@ -50,6 +50,5 @@ public class Adaptee {
 	public int getEnd() {
 		return end;
 	}
-	
-	
+
 }
