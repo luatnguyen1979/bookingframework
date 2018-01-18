@@ -52,6 +52,7 @@ public class EmployeeApp {
 		orgEmp.setStaff(new Employee[] {staff1, staff2, supervisor});
 		
 		supervisor.setSupervisor(orgEmp);
+		System.out.println(orgEmp);
 		Employee cloneEmp = (Employee)orgEmp.clone();
 		System.out.println(cloneEmp);
 		
