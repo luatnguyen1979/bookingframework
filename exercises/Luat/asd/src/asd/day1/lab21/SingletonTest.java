@@ -3,7 +3,7 @@
  * @author luatnguyen
  *
  */
-package asd.day1;
+package asd.day1.lab21;
 
 public class SingletonTest {
 

@@ -3,8 +3,6 @@
  */
 package asd.day2.lab31;
 
-import java.util.Queue;
-
 /**
  * @author luatnguyen
  *
