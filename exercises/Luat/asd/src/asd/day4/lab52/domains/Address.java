@@ -1,7 +1,7 @@
 /**
  * 
  */
-package asd.day4.lab52;
+package asd.day4.lab52.domains;
 
 /**
  * @author luatnguyen
@@ -13,6 +13,16 @@ public class Address {
 	private String city;
 	private String state;
 	private String zipcode;
+	
+	
+	public Address(String street1, String street2, String city, String state, String zipcode) {
+		super();
+		this.street1 = street1;
+		this.street2 = street2;
+		this.city = city;
+		this.state = state;
+		this.zipcode = zipcode;
+	}
 	/**
 	 * @return the street1
 	 */
