@@ -1,5 +1,7 @@
 package usa.edu.mum.asd.labs.lab8.facade;
 
+import usa.edu.mum.asd.labs.lab8.memento.UserProfile;
+
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
@@ -20,8 +22,8 @@ public class Database {
     }
 
     public void getConnection() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
-        Class.forName("com.mysql.jdbc.Driver").newInstance();
-        conn = DriverManager.getConnection(databaseUrl);
+        //Class.forName("com.mysql.jdbc.Driver").newInstance();
+        conn = DriverManager.getConnection(databaseUrl, "root", "Password1");
     }
 
     public void checkConnection() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
@@ -92,6 +94,38 @@ public class Database {
             while (rs.next()) {
                 ret.add(rs.getString(1));
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+
+    public UserProfile getUserProfile(String query, String id) {
+        UserProfile ret = null;
+        try {
+            ps = this.conn.prepareStatement(query);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                ret = new UserProfile(
+                        rs.getString("ID"),
+                        rs.getString("FIRSTNAME"),
+                        rs.getString("LASTNAME"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+
+    public boolean saveUserProfile(String query, UserProfile userProfile) {
+        boolean ret = false;
+        try {
+            ps = this.conn.prepareStatement(query);
+            ps.setString(1, userProfile.getId());
+            ps.setString(2, userProfile.getFirstname());
+            ps.setString(3, userProfile.getLastname());
+            ret = ps.execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
