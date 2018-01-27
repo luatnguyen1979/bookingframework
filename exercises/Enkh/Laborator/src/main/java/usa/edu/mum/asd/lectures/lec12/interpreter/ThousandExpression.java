@@ -1,0 +1,24 @@
+package usa.edu.mum.asd.lectures.lec12.interpreter;
+
+public class ThousandExpression extends Expression {
+
+    public String one() {
+        return "M";
+    }
+
+    public String four() {
+        return " ";
+    }
+
+    public String five() {
+        return " ";
+    }
+
+    public String nine() {
+        return " ";
+    }
+
+    public int multiplier() {
+        return 1000;
+    }
+}
