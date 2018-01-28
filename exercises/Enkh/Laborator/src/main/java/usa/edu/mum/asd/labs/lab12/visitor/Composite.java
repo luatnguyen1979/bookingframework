@@ -1,4 +1,4 @@
-package usa.edu.mum.asd.labs.lab12.lab12.visitor;
+package usa.edu.mum.asd.labs.lab12.visitor;
 
 import java.util.LinkedList;
 import java.util.List;

@@ -1,12 +1,12 @@
-package usa.edu.mum.asd.labs.lab12.lab12.visitor;
+package usa.edu.mum.asd.labs.lab12.visitor;
 
-public class Node extends Composite {
+public class Root extends Composite {
 
     private final Side side;
     private final String name;
 
-    public Node(Side side, String name) {
-        this.side = side;
+    public Root(String name) {
+        this.side = Side.NONE;
         this.name = name;
     }
 
