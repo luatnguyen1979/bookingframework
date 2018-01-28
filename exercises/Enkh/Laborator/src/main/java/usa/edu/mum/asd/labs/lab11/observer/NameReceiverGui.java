@@ -35,6 +35,5 @@ public class NameReceiverGui implements Observer {
     @Override
     public void setNames(String names) {
         textArea.setText(names);
-        System.out.println("Received:" + names);
     }
 }

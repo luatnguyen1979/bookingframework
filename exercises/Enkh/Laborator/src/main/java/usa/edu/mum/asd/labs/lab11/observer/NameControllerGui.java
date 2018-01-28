@@ -8,14 +8,13 @@ import java.awt.event.ActionListener;
 public class NameControllerGui {
 
     public Names names = new Names();
+    private JTextField jTextField1 = new JTextField(100);
+    private JButton btnAdd = new JButton("Add");
+    private JButton btnRemove = new JButton("Remove");
 
     public void createAndShowGUI() {
         JFrame frame = new JFrame("NameControllerGui");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        JTextField jTextField = new JTextField();
-        JButton btnAdd = new JButton("Add");
-        JButton btnRemove = new JButton("Remove");
 
         JPanel main = new JPanel();
         JPanel top = new JPanel();
@@ -26,7 +25,7 @@ public class NameControllerGui {
         GridLayout gridLayoutBottom = new GridLayout(1, 2);
 
         top.setLayout(gridLayoutTop);
-        top.add(jTextField);
+        top.add(jTextField1);
 
         bottom.setLayout(gridLayoutBottom);
         bottom.add(btnAdd);
@@ -41,16 +40,15 @@ public class NameControllerGui {
         btnAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                names.addName(jTextField.getText());
-                jTextField.setText("");
-                System.out.println(names.size());
+                names.addName(jTextField1.getText());
+                jTextField1.setText("");
             }
         });
-        btnAdd.addActionListener(new ActionListener() {
+        btnRemove.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                names.removeName(jTextField.getText());
-                jTextField.setText("");
+                names.removeName(jTextField1.getText());
+                jTextField1.setText("");
             }
         });
 
@@ -67,6 +65,8 @@ public class NameControllerGui {
             nameControllerGui.createAndShowGUI();
             NameReceiverGui nameReceiverGui = new NameReceiverGui(nameControllerGui.names);
             nameReceiverGui.createAndShowGUI();
+            NameReceiverGui nameReceiverGui1 = new NameReceiverGui(nameControllerGui.names);
+            nameReceiverGui1.createAndShowGUI();
         } catch (Exception e) {
             e.printStackTrace();
         }
