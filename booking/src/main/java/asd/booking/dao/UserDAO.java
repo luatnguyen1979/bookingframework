@@ -12,13 +12,13 @@ import java.sql.Statement;
  *
  */
 
-import asd.booking.domain.UserBean;
+import asd.booking.domain.User;
 
 public class UserDAO {
 	static Connection currentCon = null;
 	static ResultSet rs = null;
 
-	public static UserBean login(UserBean bean) {
+	public static User login(User bean) {
 
 		// preparing some objects for connection
 		Statement stmt = null;

@@ -7,7 +7,7 @@ package asd.booking.domain;
  * @author luatnguyen
  *
  */
-public class UserBean {
+public class User {
 
 	private String username;
 	private String password;

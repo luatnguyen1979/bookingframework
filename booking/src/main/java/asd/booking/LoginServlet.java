@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import asd.booking.dao.UserDAO;
-import asd.booking.domain.UserBean;
+import asd.booking.domain.User;
 
 /**
  * Servlet implementation class LoginServlet
@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
 
 		try {
 
-			UserBean user = new UserBean();
+			User user = new User();
 			user.setUserName(request.getParameter("un"));
 			user.setPassword(request.getParameter("pw"));
 

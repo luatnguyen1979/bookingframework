@@ -1,24 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-   <%@ page import="asd.booking.domain.UserBean" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@include file="header.jsp"%>
+<%@ page import="asd.booking.domain.User"%>
 
+<%
+	User currentUser = (User) session.getAttribute("currentSessionUser");
+%>
 
-   <html>
-
-      <head>
-         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <title>   User Logged Successfully   </title>
-      </head>
-    
-      <body>
-
-         <center>
-            <% UserBean currentUser = (UserBean) session.getAttribute("currentSessionUser");%>
-            
-            Welcome <%= currentUser.getFirstName() + " " + currentUser.getLastName() %>
-         </center>
-
-      </body>
-    
-   </html>
+<h1>Welcome
+<%=currentUser.getFirstName() + " " + currentUser.getLastName()%>
+</h1>
+<%@include file="footer.jsp"%>
