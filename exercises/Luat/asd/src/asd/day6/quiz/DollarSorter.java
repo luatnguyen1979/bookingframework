@@ -17,7 +17,7 @@ public class DollarSorter extends CoinSorter {
 	@Override
 	public void sortCoins(Coin coin) {
 		// TODO Auto-generated method stub
-		if (coin)
+		//if (coin)
 		
 	}
 

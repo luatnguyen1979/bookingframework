@@ -33,31 +33,31 @@ public class CustomerApp {
 		GoogleMap map4 = MapFactory.getGoogleMap(addr4.getCity());
 		System.out.println("GoogleMap for city: " + addr4.getCity() + " and memory adress is: " + map4);
 
-		Image img1 = new Image(1234, 4321, map1);
-		Image img2 = new Image(5678, 8765, map2);
-		Image img3 = new Image(9876, 6789, map3);
-		Image img4 = new Image(4567, 7656, map4);
-
-		Customer cust1 = new Customer(1, "Luat", "Nguyen");
-		cust1.setResidenceAddress(addr1);
-		cust1.setProfile(profile1);
-		cust1.setLocationMap(img1);
-		System.out.println(cust1.toString());
-		Customer cust2 = new Customer(2, "Luat", "Nguyen");
-		cust2.setResidenceAddress(addr2);
-		cust2.setProfile(profile2);
-		cust2.setLocationMap(img2);
-		System.out.println(cust2.toString());
-		Customer cust3 = new Customer(3, "Luat", "Nguyen");
-		cust3.setResidenceAddress(addr3);
-		cust3.setProfile(profile3);
-		cust3.setLocationMap(img3);
-		System.out.println(cust3.toString());
-		Customer cust4 = new Customer(4, "Luat", "Nguyen");
-		cust4.setResidenceAddress(addr4);
-		cust4.setProfile(profile4);
-		cust4.setLocationMap(img4);
-		System.out.println(cust4.toString());
+//		Image img1 = new Image(1234, 4321, map1);
+//		Image img2 = new Image(5678, 8765, map2);
+//		Image img3 = new Image(9876, 6789, map3);
+//		Image img4 = new Image(4567, 7656, map4);
+//
+//		Customer cust1 = new Customer(1, "Luat", "Nguyen");
+//		cust1.setResidenceAddress(addr1);
+//		cust1.setProfile(profile1);
+//		cust1.setLocationMap(img1);
+//		System.out.println(cust1.toString());
+//		Customer cust2 = new Customer(2, "Luat", "Nguyen");
+//		cust2.setResidenceAddress(addr2);
+//		cust2.setProfile(profile2);
+//		cust2.setLocationMap(img2);
+//		System.out.println(cust2.toString());
+//		Customer cust3 = new Customer(3, "Luat", "Nguyen");
+//		cust3.setResidenceAddress(addr3);
+//		cust3.setProfile(profile3);
+//		cust3.setLocationMap(img3);
+//		System.out.println(cust3.toString());
+//		Customer cust4 = new Customer(4, "Luat", "Nguyen");
+//		cust4.setResidenceAddress(addr4);
+//		cust4.setProfile(profile4);
+//		cust4.setLocationMap(img4);
+//		System.out.println(cust4.toString());
 
 	}
 

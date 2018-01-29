@@ -7,7 +7,7 @@ package asd.day7.lab82;
  * @author luatnguyen
  *
  */
-public class GoogleMap implements IMap {
+public class GoogleMap {
 	private String cityName;
 
 	/**
@@ -32,16 +32,21 @@ public class GoogleMap implements IMap {
 		this.cityName = cityName;
 	}
 
+	/* (non-Javadoc)
+	 * @see asd.day7.lab82.IMap#createMap(long, long, java.lang.String)
+	 */
+//	@Override
+//	public void createMap(long longitube, long latitube, String cityName) {
+//		System.out.println("Creating Google object for city: " + this.cityName);
+//		
+//	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see asd.day7.lab82.IMap#createMap()
 	 */
-	@Override
-	public void createMap() {
-		System.out.println("Creating Google object for city: " + this.cityName);
 
-	}
 
 	// @Override
 	// public String toString() {
