@@ -13,8 +13,13 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import asd.booking.domain.User;
+import asd.booking.domain.Customer;
 
+/**
+ * 
+ * @author kimtey
+ *
+ */
 public class SendEmailUtils {
 
     private static SendEmailUtils INSTNANCE;
@@ -25,12 +30,20 @@ public class SendEmailUtils {
 
     }
 
-    public static SendEmailUtils getInstance() {
+    /**
+     * 
+     * @return SendEmailUtils
+     */
+    public synchronized static SendEmailUtils getInstance() {
         if (INSTNANCE == null)
             INSTNANCE = new SendEmailUtils();
         return INSTNANCE;
     }
 
+    /**
+     * 
+     * @return Properties
+     */
     private Properties getPropertiesMail() {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -42,25 +55,22 @@ public class SendEmailUtils {
     
     /**
      * 
-     * @param user
+     * @param Customer
      */
-    public void sendEmail(User user) {
-        
+    public void sendEmail(Customer customer) {  
         Properties props = getPropertiesMail();
-        Session session = Session.getInstance(props,
-          new javax.mail.Authenticator() {
+        Session session = Session.getInstance(props,new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(USERNAME, PASSWORD);
             }
           });
         try {
-
             Message message = new MimeMessage(session);
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("kimtey.chav@gmail.com"));
-            message.setSubject("Testing Subject");
-            message.setText("Testing body test");
+//            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(customer.getEmail()));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("luatnguyen@gmail.com"));
+            message.setSubject("Testing Subject"); // need to be discussed for the subject
+            message.setText("Testing body test"); // need to be discussed for the body
             Transport.send(message);
-            System.out.println("Done");
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
