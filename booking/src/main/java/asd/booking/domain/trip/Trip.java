@@ -81,4 +81,8 @@ public class Trip {
     public void setBookedDate(LocalDate bookedDate) {
         this.bookedDate = bookedDate;
     }
+
+    public Integer getId() {
+        return id;
+    }
 }

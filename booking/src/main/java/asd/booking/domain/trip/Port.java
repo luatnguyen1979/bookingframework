@@ -30,4 +30,8 @@ public class Port {
     public void setState(State state) {
         this.state = state;
     }
+
+    public Integer getId() {
+        return id;
+    }
 }

@@ -35,4 +35,8 @@ public class Price {
     public ArrayList<Route> getRoutes() {
         return routes;
     }
+
+    public Integer getId() {
+        return id;
+    }
 }
