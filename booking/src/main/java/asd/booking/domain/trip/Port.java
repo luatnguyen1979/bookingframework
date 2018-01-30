@@ -4,9 +4,28 @@ import asd.booking.domain.Address;
 
 public class Port {
 
-    private String name;
-    private Address address;
+    private final String name;
+    private final Address address;
     private State state;
 
+    public Port(String name, Address address) {
+        this.name = name;
+        this.address = address;
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
 }

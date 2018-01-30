@@ -6,13 +6,16 @@ public class State {
 
     private final String fullName;
     private final String shortName;
-    private final String zipcode;
+    private final String zipCode;
     private final List<Port> portList;
 
-    public State(String fullName, String shortName, String zipcode, List<Port> portList) {
+    public State(String fullName, String shortName, String zipCode, List<Port> portList) {
         this.fullName = fullName;
         this.shortName = shortName;
-        this.zipcode = zipcode;
+        this.zipCode = zipCode;
+        for (Port port : portList) {
+            port.setState(this);
+        }
         this.portList = portList;
     }
 
@@ -24,8 +27,8 @@ public class State {
         return shortName;
     }
 
-    public String getZipcode() {
-        return zipcode;
+    public String getZipCode() {
+        return zipCode;
     }
 
     public List<Port> getPortList() {
