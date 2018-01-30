@@ -153,3 +153,44 @@ INSERT INTO `user` (`id`, `username`, `password`, `customerid`) VALUES (4,'tam',
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2018-01-30  3:34:53
+
+-- add train table
+DROP TABLE IF EXISTS `Train`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Train` (
+  `trainid` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `startTime` DATETIME  DEFAULT NULL,
+  `arrivalTime` DATETIME  DEFAULT NULL,
+  `fromStation` varchar(45) DEFAULT NULL,
+  `toStation` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`trainid`),
+  UNIQUE KEY `trainid_UNIQUE` (`trainid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--migrated the data
+
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `train` ( `name`, `startTime`,`arrivalTime`,`fromStation`, `toStation`) 
+		VALUES ('T001','2018-01-01 10:00','2018-01-01 11:00','Fairfiled','Cedar Rapids');
+INSERT INTO `train` ( `name`, `startTime`,`arrivalTime`,`fromStation`, `toStation`) 
+		VALUES ('T001','2018-01-01 12:00','2018-01-01 13:00','Fairfiled','MT Plesant');
+INSERT INTO `train` ( `name`, `startTime`,`arrivalTime`,`fromStation`, `toStation`) 
+		VALUES ('T001','2018-01-01 14:00','2018-01-01 15:00','Fairfiled','Ottumwa');
+INSERT INTO `train` ( `name`, `startTime`,`arrivalTime`,`fromStation`, `toStation`) 
+		VALUES ('T001','2018-01-01 17:00','2018-01-01 18:00','Fairfiled','Iowa City');
+        
+INSERT INTO `train` ( `name`, `startTime`,`arrivalTime`,`fromStation`, `toStation`) 
+		VALUES ('T002','2018-01-01 10:00','2018-01-01 14:00','Chicago','Cedar Rapids');
+INSERT INTO `train` ( `name`, `startTime`,`arrivalTime`,`fromStation`, `toStation`) 
+		VALUES ('T002','2018-01-01 16:00','2018-01-01 20:00','Chicago','Iowa City');
+        
+INSERT INTO `train` ( `name`, `startTime`,`arrivalTime`,`fromStation`, `toStation`) 
+		VALUES ('T003','2018-01-01 14:00','2018-01-01 15:00','Chicago','Joliet');
+INSERT INTO `train` ( `name`, `startTime`,`arrivalTime`,`fromStation`, `toStation`) 
+		VALUES ('T003','2018-01-01 17:00','2018-01-01 18:00','Chicago','Gary');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
