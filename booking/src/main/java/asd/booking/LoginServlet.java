@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import asd.booking.dao.UserDAO;
+import asd.booking.domain.Customer;
 import asd.booking.domain.User;
 
 /**
@@ -31,12 +32,13 @@ public class LoginServlet extends HttpServlet {
 			user.setUserName(request.getParameter("un"));
 			user.setPassword(request.getParameter("pw"));
 
-			user = UserDAO.login(user);
+			Customer cust = UserDAO.login(user);
 
-			if (user.isValid()) {
+			if (cust.isValid()) {
 
 				HttpSession session = request.getSession(true);
 				session.setAttribute("currentSessionUser", user);
+				session.setAttribute("currentSessionCustomer", cust);
 				response.sendRedirect("userLogged.jsp"); // logged-in page
 			}
 

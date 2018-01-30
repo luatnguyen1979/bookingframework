@@ -14,6 +14,23 @@ public class Address {
 	private String zipCode;
 	private String state;
 
+	
+	/**
+	 * @param address1
+	 * @param address2
+	 * @param city
+	 * @param zipCode
+	 * @param state
+	 */
+	public Address(String address1, String address2, String city, String zipCode, String state) {
+		super();
+		Address1 = address1;
+		Address2 = address2;
+		this.city = city;
+		this.zipCode = zipCode;
+		this.state = state;
+	}
+
 	/**
 	 * @return the address1
 	 */

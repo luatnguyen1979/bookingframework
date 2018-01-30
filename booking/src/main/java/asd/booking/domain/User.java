@@ -9,49 +9,69 @@ package asd.booking.domain;
  */
 public class User {
 
-	private String username;
+	private String userName;
 	private String password;
-	private String firstName;
-	private String lastName;
+
 	public boolean valid;
 
-	public String getFirstName() {
-		return firstName;
+	/**
+	 * 
+	 */
+	public User() {
+	}
+	
+	/**
+	 * 
+	 */
+	public User(User user) {
+		this.userName = user.userName;
+		this.password = user.password;
+		this.valid = user.valid;
 	}
 
-	public void setFirstName(String newFirstName) {
-		firstName = newFirstName;
+	/**
+	 * @return the userName
+	 */
+	public String getUserName() {
+		return userName;
 	}
 
-	public String getLastName() {
-		return lastName;
+	/**
+	 * @param userName
+	 *            the userName to set
+	 */
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	public void setLastName(String newLastName) {
-		lastName = newLastName;
-	}
-
+	/**
+	 * @return the password
+	 */
 	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(String newPassword) {
-		password = newPassword;
+	/**
+	 * @param password
+	 *            the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUserName(String newUsername) {
-		username = newUsername;
-	}
-
+	/**
+	 * @return the valid
+	 */
 	public boolean isValid() {
 		return valid;
 	}
 
-	public void setValid(boolean newValid) {
-		valid = newValid;
+	/**
+	 * @param valid
+	 *            the valid to set
+	 */
+	public void setValid(boolean valid) {
+		this.valid = valid;
 	}
+
 }

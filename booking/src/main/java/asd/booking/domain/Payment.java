@@ -19,6 +19,26 @@ public class Payment {
 	private Address billingAddress;
 
 	/**
+	 * @param cartType
+	 * @param holderName
+	 * @param cardNumber
+	 * @param expiredMonth
+	 * @param expiredYear
+	 * @param ccv
+	 * @param billingAddress
+	 */
+	public Payment(CardType cartType, String holderName, String cardNumber, String expiredMonth, String expiredYear,
+			String ccv) {
+		super();
+		this.cartType = cartType;
+		this.holderName = holderName;
+		this.cardNumber = cardNumber;
+		this.expiredMonth = expiredMonth;
+		this.expiredYear = expiredYear;
+		this.ccv = ccv;
+	}
+
+	/**
 	 * @return the cartType
 	 */
 	public CardType getCartType() {
