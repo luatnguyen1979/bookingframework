@@ -1,13 +1,13 @@
-package asd.booking.domain.discount;
+package asd.booking.domain.discount.calculation;
 
 import java.time.LocalDate;
 
-public abstract class DiscountType {
+public abstract class Calculation {
 
     private LocalDate bd;
     private LocalDate ed;
 
-    public DiscountType(LocalDate bd, LocalDate ed) {
+    public Calculation(LocalDate bd, LocalDate ed) {
         this.bd = bd;
         this.ed = ed;
     }

@@ -1,5 +1,10 @@
 package asd.booking.domain.discount;
 
+import asd.booking.domain.discount.passenger.Adult;
+import asd.booking.domain.discount.passenger.Child;
+import asd.booking.domain.discount.passenger.Infant;
+import asd.booking.domain.discount.passenger.Senior;
+
 public interface DiscountVisitor {
 
     public void visit(Adult adult);

@@ -1,27 +1,31 @@
-package asd.booking.domain.discount;
+package asd.booking.domain.discount.passenger;
+
+import asd.booking.domain.discount.Discount;
+import asd.booking.domain.discount.DiscountVisitor;
+import asd.booking.domain.discount.calculation.Calculation;
 
 public class Passenger {
 
-    private DiscountType discountType;
+    private Calculation calculation;
     private String name;
     private String description;
     private byte fromAge;
     private byte toAge;
 
-    public Passenger(DiscountType discountType, String name, String description, byte fromAge, byte toAge) {
-        this.discountType = discountType;
+    public Passenger(Calculation calculation, String name, String description, byte fromAge, byte toAge) {
+        this.calculation = calculation;
         this.name = name;
         this.description = description;
         this.fromAge = fromAge;
         this.toAge = toAge;
     }
 
-    public DiscountType getDiscountType() {
-        return discountType;
+    public Calculation getCalculation() {
+        return calculation;
     }
 
-    public void setDiscountType(DiscountType discountType) {
-        this.discountType = discountType;
+    public void setCalculation(Calculation calculation) {
+        this.calculation = calculation;
     }
 
     public String getName() {

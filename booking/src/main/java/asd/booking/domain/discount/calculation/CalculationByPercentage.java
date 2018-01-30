@@ -1,12 +1,12 @@
-package asd.booking.domain.discount;
+package asd.booking.domain.discount.calculation;
 
 import java.time.LocalDate;
 
-public class PercentageOffDiscount extends DiscountType {
+public class CalculationByPercentage extends Calculation {
 
     private Double percentageOff;
 
-    public PercentageOffDiscount(LocalDate bd, LocalDate ed, Double percentageOff) {
+    public CalculationByPercentage(LocalDate bd, LocalDate ed, Double percentageOff) {
         super(bd, ed);
         this.percentageOff = percentageOff;
     }

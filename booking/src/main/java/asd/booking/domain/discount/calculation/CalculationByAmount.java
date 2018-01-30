@@ -1,12 +1,12 @@
-package asd.booking.domain.discount;
+package asd.booking.domain.discount.calculation;
 
 import java.time.LocalDate;
 
-public class AmountOffDiscount extends DiscountType {
+public class CalculationByAmount extends Calculation {
 
     private Double amountOff;
 
-    public AmountOffDiscount(LocalDate bd, LocalDate ed, Double amountOff) {
+    public CalculationByAmount(LocalDate bd, LocalDate ed, Double amountOff) {
         super(bd, ed);
         this.amountOff = amountOff;
     }
