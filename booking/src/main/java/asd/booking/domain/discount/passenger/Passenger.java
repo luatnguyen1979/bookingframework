@@ -1,18 +1,18 @@
 package asd.booking.domain.discount.passenger;
 
-import asd.booking.domain.discount.Discount;
-import asd.booking.domain.discount.DiscountVisitor;
 import asd.booking.domain.discount.calculation.Calculation;
 
 public class Passenger {
 
+    private Integer id;
     private Calculation calculation;
     private String name;
     private String description;
     private byte fromAge;
     private byte toAge;
 
-    public Passenger(Calculation calculation, String name, String description, byte fromAge, byte toAge) {
+    public Passenger(Integer id, Calculation calculation, String name, String description, byte fromAge, byte toAge) {
+        this.id = id;
         this.calculation = calculation;
         this.name = name;
         this.description = description;

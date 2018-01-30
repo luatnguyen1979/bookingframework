@@ -1,4 +1,4 @@
-package asd.booking.domain.discount;
+package asd.booking.controller.discount;
 
 import asd.booking.domain.discount.passenger.Adult;
 import asd.booking.domain.discount.passenger.Child;
@@ -15,22 +15,18 @@ public class PassengerTypeVisitor implements DiscountVisitor {
         this.totalSave = 0.0;
     }
 
-    @Override
     public void visit(Adult adult) {
         totalSave = totalSave + adult.getCalculation().getSave(regularPrice);
     }
 
-    @Override
     public void visit(Child child) {
         totalSave = totalSave + child.getCalculation().getSave(regularPrice);
     }
 
-    @Override
     public void visit(Senior senior) {
         totalSave = totalSave + senior.getCalculation().getSave(regularPrice);
     }
 
-    @Override
     public void visit(Infant infant) {
         totalSave = totalSave + infant.getCalculation().getSave(regularPrice);
     }

@@ -1,4 +1,4 @@
-package asd.booking.domain.discount;
+package asd.booking.controller.discount;
 
 import asd.booking.domain.discount.calculation.Calculation;
 import asd.booking.domain.discount.passenger.*;
@@ -21,22 +21,18 @@ public class PassengerGroupVisitor implements DiscountVisitor {
         this.totalSave = 0.0;
     }
 
-    @Override
     public void visit(Adult adult) {
         if (memberList.contains(adult)) currentMember++;
     }
 
-    @Override
     public void visit(Child child) {
         if (memberList.contains(child)) currentMember++;
     }
 
-    @Override
     public void visit(Senior senior) {
         if (memberList.contains(senior)) currentMember++;
     }
 
-    @Override
     public void visit(Infant infant) {
         if (memberList.contains(infant)) currentMember++;
     }

@@ -6,8 +6,8 @@ public class CalculationByAmount extends Calculation {
 
     private Double amountOff;
 
-    public CalculationByAmount(LocalDate bd, LocalDate ed, Double amountOff) {
-        super(bd, ed);
+    public CalculationByAmount(Integer id, LocalDate bd, LocalDate ed, Double amountOff) {
+        super(id, bd, ed);
         this.amountOff = amountOff;
     }
 

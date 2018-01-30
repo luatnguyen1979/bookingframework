@@ -1,4 +1,4 @@
-package asd.booking.domain.discount;
+package asd.booking.controller.discount;
 
 import asd.booking.domain.discount.passenger.Adult;
 import asd.booking.domain.discount.passenger.Child;

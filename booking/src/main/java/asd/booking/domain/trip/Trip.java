@@ -12,14 +12,16 @@ public class Trip {
     private LocalDate arrivelDate;
     private List<Passenger> passengerList;
     private Price price;
+    private LocalDate bookedDate;
 
     public Trip(boolean roundWay, LocalDate departureDate, LocalDate arrivelDate,
-                List<Passenger> passengerList, Price price) {
+                List<Passenger> passengerList, Price price, LocalDate bookedDate) {
         this.roundWay = roundWay;
         this.departureDate = departureDate;
         this.arrivelDate = arrivelDate;
         this.passengerList = passengerList;
         this.price = price;
+        this.bookedDate = bookedDate;
     }
 
     public boolean isRoundWay() {
@@ -68,5 +70,13 @@ public class Trip {
 
     public Port getArrivalPort() {
         return price.getRoutes().get(price.getRoutes().size() - 1).getDestination();
+    }
+
+    public LocalDate getBookedDate() {
+        return bookedDate;
+    }
+
+    public void setBookedDate(LocalDate bookedDate) {
+        this.bookedDate = bookedDate;
     }
 }

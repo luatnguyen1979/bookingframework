@@ -6,8 +6,8 @@ public class CalculationByPercentage extends Calculation {
 
     private Double percentageOff;
 
-    public CalculationByPercentage(LocalDate bd, LocalDate ed, Double percentageOff) {
-        super(bd, ed);
+    public CalculationByPercentage(Integer id, LocalDate bd, LocalDate ed, Double percentageOff) {
+        super(id, bd, ed);
         this.percentageOff = percentageOff;
     }
 

@@ -1,4 +1,4 @@
-package asd.booking.domain.discount;
+package asd.booking.controller.discount;
 
 public interface Discount {
 

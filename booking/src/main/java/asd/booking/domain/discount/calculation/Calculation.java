@@ -4,10 +4,12 @@ import java.time.LocalDate;
 
 public abstract class Calculation {
 
+    private Integer id;
     private LocalDate bd;
     private LocalDate ed;
 
-    public Calculation(LocalDate bd, LocalDate ed) {
+    public Calculation(Integer id, LocalDate bd, LocalDate ed) {
+        this.id = id;
         this.bd = bd;
         this.ed = ed;
     }
