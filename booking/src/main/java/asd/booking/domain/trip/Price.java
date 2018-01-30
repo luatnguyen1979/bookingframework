@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 public class Price {
 
+    private Integer id;
     private Double amountOneWay;
     private Double amountRoundWay;
     private final ArrayList<Route> routes;
 
-    public Price(Double amountOneWay, Double amountRoundWay, ArrayList<Route> routes) {
+    public Price(Integer id, Double amountOneWay, Double amountRoundWay, ArrayList<Route> routes) {
+        this.id = id;
         this.amountOneWay = amountOneWay;
         this.amountRoundWay = amountRoundWay;
         this.routes = routes;

@@ -2,12 +2,14 @@ package asd.booking.domain.trip;
 
 public class Route {
 
+    private Integer id;
     private Port source;
     private Port destination;
     private Integer duration;
     private Double distance;
 
-    public Route(Port source, Port destination, Integer duration, Double distance) {
+    public Route(Integer id, Port source, Port destination, Integer duration, Double distance) {
+        this.id = id;
         this.source = source;
         this.destination = destination;
         this.duration = duration;

@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Trip {
 
+    private Integer id;
     private boolean roundWay;
     private LocalDate departureDate;
     private LocalDate arrivelDate;
@@ -14,8 +15,9 @@ public class Trip {
     private Price price;
     private LocalDate bookedDate;
 
-    public Trip(boolean roundWay, LocalDate departureDate, LocalDate arrivelDate,
+    public Trip(Integer id, boolean roundWay, LocalDate departureDate, LocalDate arrivelDate,
                 List<Passenger> passengerList, Price price, LocalDate bookedDate) {
+        this.id = id;
         this.roundWay = roundWay;
         this.departureDate = departureDate;
         this.arrivelDate = arrivelDate;

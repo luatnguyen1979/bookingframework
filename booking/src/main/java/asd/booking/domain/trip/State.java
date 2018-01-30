@@ -4,12 +4,14 @@ import java.util.List;
 
 public class State {
 
+    private final Integer id;
     private final String fullName;
     private final String shortName;
     private final String zipCode;
     private final List<Port> portList;
 
-    public State(String fullName, String shortName, String zipCode, List<Port> portList) {
+    public State(Integer id, String fullName, String shortName, String zipCode, List<Port> portList) {
+        this.id = id;
         this.fullName = fullName;
         this.shortName = shortName;
         this.zipCode = zipCode;

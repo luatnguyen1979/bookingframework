@@ -4,11 +4,13 @@ import asd.booking.domain.Address;
 
 public class Port {
 
+    private final Integer id;
     private final String name;
     private final Address address;
     private State state;
 
-    public Port(String name, Address address) {
+    public Port(Integer id, String name, Address address) {
+        this.id = id;
         this.name = name;
         this.address = address;
     }
