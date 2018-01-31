@@ -1,9 +1,10 @@
 package asd.booking.domain.discount.passenger;
 
+import asd.booking.controller.discount.IPrice;
 import asd.booking.domain.discount.calculation.Calculation;
 import asd.booking.utils.PassengerType;
 
-public class Passenger {
+public class Passenger implements IPrice {
 
     private Integer id;
     private Calculation calculation;
@@ -44,20 +45,16 @@ public class Passenger {
         this.description = description;
     }
 
-	/**
-	 * @return the passengerType
-	 */
-	public PassengerType getPassengerType() {
-		return passengerType;
-	}
+    public PassengerType getPassengerType() {
+        return passengerType;
+    }
 
-	/**
-	 * @param passengerType the passengerType to set
-	 */
-	public void setPassengerType(PassengerType passengerType) {
-		this.passengerType = passengerType;
-	}
+    public void setPassengerType(PassengerType passengerType) {
+        this.passengerType = passengerType;
+    }
 
-    
-    
+    @Override
+    public double getPrice(Double regularPrice) {
+        return calculation.calculate(regularPrice);
+    }
 }
