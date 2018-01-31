@@ -10,4 +10,5 @@ Customer customer = (Customer) session.getAttribute("currentSessionCustomer");
 <%=customer.getFirstName() + " " + customer.getLastName()%>
 </h1>
 <a href="booking.jsp">Booking Train</a>&nbsp;&nbsp;<a href="logout">Log out</a>
+<a href="searching.jsp">Booking Train</a>&nbsp;&nbsp;<a href="logout">Log out</a>
 <%@include file="footer.jsp"%>

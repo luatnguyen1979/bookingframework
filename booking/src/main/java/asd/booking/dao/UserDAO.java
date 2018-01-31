@@ -165,7 +165,7 @@ public class UserDAO {
 
 			// if user exists set the isValid variable to true
 			else if (more) {
-				int userId = rs.getInt("userid");
+				int userId = rs.getInt("id");
 				user.setValid(true);
 				user.setUserId(userId);
 
