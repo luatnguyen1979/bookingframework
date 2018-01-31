@@ -1,5 +1,6 @@
 package asd.booking.domain.trip;
 
+import asd.booking.domain.Customer;
 import asd.booking.domain.discount.passenger.Passenger;
 
 import java.time.LocalDate;
@@ -7,23 +8,32 @@ import java.util.List;
 
 public class Trip {
 
-    private Integer id;
+    private int id;
     private boolean roundWay;
     private LocalDate departureDate;
-    private LocalDate arrivelDate;
+    private LocalDate arrivalDate;
     private List<Passenger> passengerList;
     private LocalDate bookedDate;
+    private Customer booker;
     private Route route;
 
-    public Trip(Integer id, boolean roundWay, LocalDate departureDate, LocalDate arrivelDate,
-                List<Passenger> passengerList, LocalDate bookedDate, Route route) {
+    public Trip(int id, boolean roundWay, LocalDate departureDate, LocalDate arrivalDate, List<Passenger> passengerList, LocalDate bookedDate, Customer booker, Route route) {
         this.id = id;
         this.roundWay = roundWay;
         this.departureDate = departureDate;
-        this.arrivelDate = arrivelDate;
+        this.arrivalDate = arrivalDate;
         this.passengerList = passengerList;
         this.bookedDate = bookedDate;
+        this.booker = booker;
         this.route = route;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public boolean isRoundWay() {
@@ -42,12 +52,12 @@ public class Trip {
         this.departureDate = departureDate;
     }
 
-    public LocalDate getArrivelDate() {
-        return arrivelDate;
+    public LocalDate getArrivalDate() {
+        return arrivalDate;
     }
 
-    public void setArrivelDate(LocalDate arrivelDate) {
-        this.arrivelDate = arrivelDate;
+    public void setArrivalDate(LocalDate arrivalDate) {
+        this.arrivalDate = arrivalDate;
     }
 
     public List<Passenger> getPassengerList() {
@@ -58,26 +68,6 @@ public class Trip {
         this.passengerList = passengerList;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Route getRoute() {
-        return route;
-    }
-
-    public void setRoute(Route route) {
-        this.route = route;
-    }
-
-    public Port getDeparturePort() {
-        return route.getSource();
-    }
-
-    public Port getArrivalPort() {
-        return route.getDestination();
-    }
-
     public LocalDate getBookedDate() {
         return bookedDate;
     }
@@ -86,7 +76,19 @@ public class Trip {
         this.bookedDate = bookedDate;
     }
 
-    public Integer getId() {
-        return id;
+    public Customer getBooker() {
+        return booker;
+    }
+
+    public void setBooker(Customer booker) {
+        this.booker = booker;
+    }
+
+    public Route getRoute() {
+        return route;
+    }
+
+    public void setRoute(Route route) {
+        this.route = route;
     }
 }

@@ -25,7 +25,7 @@ public class Payment {
 	 * @param expiredMonth
 	 * @param expiredYear
 	 * @param ccv
-	 * @param billingAddress
+	 *
 	 */
 	public Payment(CardType cartType, String holderName, String cardNumber, String expiredMonth, String expiredYear,
 			String ccv) {

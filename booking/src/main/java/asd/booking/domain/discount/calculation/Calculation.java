@@ -1,29 +1,30 @@
 package asd.booking.domain.discount.calculation;
 
-import java.time.LocalDate;
+import asd.booking.utils.PassengerType;
 
-public abstract class Calculation {
+public class Calculation {
 
-    private Integer id;
-    private LocalDate bd;
-    private LocalDate ed;
-
-    public Calculation(Integer id, LocalDate bd, LocalDate ed) {
-        this.id = id;
-        this.bd = bd;
-        this.ed = ed;
+    private double getPrice(double regularPrice, PassengerType passengerType) {
+        switch (passengerType) {
+            case ADULT:
+                return regularPrice;
+            case CHILD:
+                return regularPrice / 2;
+            case SENIOR:
+                return regularPrice * 85 / 100;
+            case INFANT:
+                return 0.0;
+            default:
+                return regularPrice;
+        }
     }
 
-    public final Double getSave(Double regularPrice) {
-        if (bd == null && ed == null) return regularPrice;
-        LocalDate now = LocalDate.now();
-        if (bd != null && !bd.isBefore(now)) return regularPrice;
-        if (ed != null && !ed.isAfter(now)) return regularPrice;
-        Double ret = calculate(regularPrice);
-        if (ret < 0) ret = 0.0;
-        if (ret > regularPrice) ret = regularPrice;
-        return ret;
+    public double getFinalPrice(double regularPrice, PassengerType passengerType, String promotionCode) {
+        double price = getPrice(regularPrice, passengerType);
+        if (promotionCode != null) {
+            //TODO check promotion by ENKH
+        }
+        return price;
     }
 
-    public abstract Double calculate(Double regularPrice);
 }

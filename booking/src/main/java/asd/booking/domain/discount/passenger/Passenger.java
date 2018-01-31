@@ -1,48 +1,33 @@
 package asd.booking.domain.discount.passenger;
 
-import asd.booking.controller.discount.IPrice;
-import asd.booking.domain.discount.calculation.Calculation;
 import asd.booking.utils.PassengerType;
 
-public class Passenger implements IPrice {
+public class Passenger {
 
     private Integer id;
-    private Calculation calculation;
-    private String name;
-    private String description;
+    private String fullname;
     private PassengerType passengerType;
 
-    public Passenger(Integer id, Calculation calculation, String name, String description, PassengerType passengerType) {
+    public Passenger(Integer id, String fullname, PassengerType passengerType) {
         this.id = id;
-        this.calculation = calculation;
-        this.name = name;
-        this.description = description;
+        this.fullname = fullname;
         this.passengerType = passengerType;
-
     }
 
-    public Calculation getCalculation() {
-        return calculation;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCalculation(Calculation calculation) {
-        this.calculation = calculation;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
     public PassengerType getPassengerType() {
@@ -51,10 +36,5 @@ public class Passenger implements IPrice {
 
     public void setPassengerType(PassengerType passengerType) {
         this.passengerType = passengerType;
-    }
-
-    @Override
-    public double getPrice(Double regularPrice) {
-        return calculation.calculate(regularPrice);
     }
 }

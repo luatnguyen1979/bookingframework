@@ -2,16 +2,18 @@ package asd.booking.domain.trip;
 
 public class Route {
 
-    private Integer id;
+    private int id;
     private Port source;
     private Port destination;
-    private Integer duration;
-    private Double distance;
-    private Double priceOneWay;
-    private Double priceRoundWay;
+    private double duration;
+    private double distance;
+    private double priceOneWay;
+    private double priceRoundWay;
 
-    public Route(Integer id, Port source, Port destination, Integer duration, Double distance,
-                 Double priceOneWay, Double priceRoundWay) {
+    public Route() {
+    }
+
+    public Route(int id, Port source, Port destination, double duration, double distance, double priceOneWay, double priceRoundWay) {
         this.id = id;
         this.source = source;
         this.destination = destination;
@@ -19,6 +21,14 @@ public class Route {
         this.distance = distance;
         this.priceOneWay = priceOneWay;
         this.priceRoundWay = priceRoundWay;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Port getSource() {
@@ -37,43 +47,35 @@ public class Route {
         this.destination = destination;
     }
 
-    public Integer getDuration() {
+    public double getDuration() {
         return duration;
     }
 
-    public void setDuration(Integer duration) {
+    public void setDuration(double duration) {
         this.duration = duration;
     }
 
-    public Double getDistance() {
+    public double getDistance() {
         return distance;
     }
 
-    public void setDistance(Double distance) {
+    public void setDistance(double distance) {
         this.distance = distance;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Double getPriceOneWay() {
+    public double getPriceOneWay() {
         return priceOneWay;
     }
 
-    public void setPriceOneWay(Double priceOneWay) {
+    public void setPriceOneWay(double priceOneWay) {
         this.priceOneWay = priceOneWay;
     }
 
-    public Double getPriceRoundWay() {
+    public double getPriceRoundWay() {
         return priceRoundWay;
     }
 
-    public void setPriceRoundWay(Double priceRoundWay) {
+    public void setPriceRoundWay(double priceRoundWay) {
         this.priceRoundWay = priceRoundWay;
     }
 }

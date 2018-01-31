@@ -2,14 +2,13 @@ package asd.booking.domain.discount.passenger;
 
 import asd.booking.controller.discount.IDiscount;
 import asd.booking.controller.discount.DiscountVisitor;
-import asd.booking.domain.discount.calculation.Calculation;
 import asd.booking.utils.PassengerType;
 
 public class Infant extends Passenger implements IDiscount {
 
 
-    public Infant(Integer id, Calculation calculation, String name, String description, PassengerType passengerType) {
-        super(id, calculation, name, description, passengerType);
+    public Infant(Integer id, String fullname, PassengerType passengerType) {
+        super(id, fullname, passengerType);
     }
 
     @Override
