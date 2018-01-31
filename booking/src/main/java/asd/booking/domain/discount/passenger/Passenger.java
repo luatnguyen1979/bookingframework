@@ -1,6 +1,7 @@
 package asd.booking.domain.discount.passenger;
 
 import asd.booking.domain.discount.calculation.Calculation;
+import asd.booking.utils.PassengerType;
 
 public class Passenger {
 
@@ -8,16 +9,15 @@ public class Passenger {
     private Calculation calculation;
     private String name;
     private String description;
-    private byte fromAge;
-    private byte toAge;
+    private PassengerType passengerType;
 
-    public Passenger(Integer id, Calculation calculation, String name, String description, byte fromAge, byte toAge) {
+    public Passenger(Integer id, Calculation calculation, String name, String description, PassengerType passengerType) {
         this.id = id;
         this.calculation = calculation;
         this.name = name;
         this.description = description;
-        this.fromAge = fromAge;
-        this.toAge = toAge;
+        this.passengerType = passengerType;
+
     }
 
     public Calculation getCalculation() {
@@ -44,19 +44,20 @@ public class Passenger {
         this.description = description;
     }
 
-    public byte getFromAge() {
-        return fromAge;
-    }
+	/**
+	 * @return the passengerType
+	 */
+	public PassengerType getPassengerType() {
+		return passengerType;
+	}
 
-    public void setFromAge(byte fromAge) {
-        this.fromAge = fromAge;
-    }
+	/**
+	 * @param passengerType the passengerType to set
+	 */
+	public void setPassengerType(PassengerType passengerType) {
+		this.passengerType = passengerType;
+	}
 
-    public byte getToAge() {
-        return toAge;
-    }
-
-    public void setToAge(byte toAge) {
-        this.toAge = toAge;
-    }
+    
+    
 }

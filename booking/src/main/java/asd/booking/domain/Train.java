@@ -3,66 +3,86 @@
  */
 package asd.booking.domain;
 
-import java.util.Date;
-
 public class Train {
 
     private String name;
-    private Date startTime;
-    private Date arrivalTime;
-    private String fromStation;
-    private String toStation;
+    private int size;
+    private String type;
+    private String model;
+    private String madeBy;
+    private boolean isActive;
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	/**
+	 * @return the size
+	 */
+	public int getSize() {
+		return size;
+	}
+	/**
+	 * @param size the size to set
+	 */
+	public void setSize(int size) {
+		this.size = size;
+	}
+	/**
+	 * @return the type
+	 */
+	public String getType() {
+		return type;
+	}
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(String type) {
+		this.type = type;
+	}
+	/**
+	 * @return the model
+	 */
+	public String getModel() {
+		return model;
+	}
+	/**
+	 * @param model the model to set
+	 */
+	public void setModel(String model) {
+		this.model = model;
+	}
+	/**
+	 * @return the madeBy
+	 */
+	public String getMadeBy() {
+		return madeBy;
+	}
+	/**
+	 * @param madeBy the madeBy to set
+	 */
+	public void setMadeBy(String madeBy) {
+		this.madeBy = madeBy;
+	}
+	/**
+	 * @return the isActive
+	 */
+	public boolean isActive() {
+		return isActive;
+	}
+	/**
+	 * @param isActive the isActive to set
+	 */
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
     
-    public Train() {
-        
-    }
     
-    public Train(String name, Date start, Date arrival, String from, String to) {
-        super();
-        this.name = name;
-        this.startTime = start;
-        this.arrivalTime = arrival;
-        this.fromStation = from;
-        this.toStation = to;
-    }
-
-    public String getName() {
-        return name;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public Date getStartTime() {
-        return startTime;
-    }
-    
-    public void setStartTime(Date start) {
-        this.startTime = start;
-    }
-    
-    public Date getArrivalTime() {
-        return arrivalTime;
-    }
-    
-    public void setArrivalTime(Date arrival) {
-        this.arrivalTime = arrival;
-    }
-    
-    public String getFromStation() {
-        return fromStation;
-    }
-    
-    public void setFromStation(String from) {
-        this.fromStation = from;
-    }
-    
-    public String getToStation() {
-        return toStation;
-    }
-    
-    public void setToStation(String to) {
-        this.toStation = to;
-    }
 }

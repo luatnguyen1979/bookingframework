@@ -1,6 +1,8 @@
 package asd.booking.controller.discount;
 
-public interface Discount {
+public interface IDiscount {
 
     public void accept(DiscountVisitor discountVisitor);
+    
+   
 }
