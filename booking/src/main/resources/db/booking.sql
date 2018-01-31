@@ -412,21 +412,44 @@ INSERT INTO `train` (`trainid`, `name`, `model`, `madeby`, `type`, `capacity`, `
 DROP TABLE IF EXISTS `trip`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `trip` (
-  `id` int(11) NOT NULL,
-  `roundway` tinyint(1) NOT NULL,
-  `departureDate` datetime NOT NULL,
-  `arrivalDate` datetime NOT NULL,
-  `bookDate` datetime NOT NULL,
-  `route_id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `trip_id_uindex` (`id`),
-  KEY `fk_route_route` (`route_id`),
-  KEY `fk_trip_customer` (`customer_id`),
-  CONSTRAINT `fk_route_route` FOREIGN KEY (`route_id`) REFERENCES `route` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_trip_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customerid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+create table trip
+(
+	id int not null
+		primary key,
+	roundway tinyint(1) not null,
+	departureDate datetime not null,
+	arrivalDate datetime not null,
+	bookDate datetime not null,
+	route_id int not null,
+	customer_id int not null,
+	train_id int not null,
+	constraint trip_id_uindex
+		unique (id),
+	constraint fk_route_route
+		foreign key (route_id) references route (id)
+			on update cascade on delete cascade,
+	constraint fk_trip_customer
+		foreign key (customer_id) references customer (customerid)
+			on update cascade on delete cascade,
+	constraint trip_train_trainid_fk
+		foreign key (train_id) references train (trainid)
+)
+engine=InnoDB
+;
+
+create index fk_route_route
+	on trip (route_id)
+;
+
+create index fk_trip_customer
+	on trip (customer_id)
+;
+
+create index trip_train_trainid_fk
+	on trip (train_id)
+;
+
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
