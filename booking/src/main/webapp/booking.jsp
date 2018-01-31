@@ -1,7 +1,7 @@
 <%@include file="header.jsp"%>
 <h1>See Where the Train Can Take You</h1>
 <form action="registercustomer" method="POST">
-	<table width="1024px" border=1>
+	<table width="1024px" >
 		<tr>
 			<td colspan="6" class="section">Book Tickets:</td>
 
