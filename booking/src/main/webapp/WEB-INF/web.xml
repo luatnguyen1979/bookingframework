@@ -28,6 +28,6 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>SearchSchedule</servlet-name>
-    <url-pattern>/SearchSchedule</url-pattern>
+    <url-pattern>/searchschedule</url-pattern>
   </servlet-mapping>
 </web-app>
