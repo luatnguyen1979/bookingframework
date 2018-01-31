@@ -17,11 +17,7 @@ public class DistanceCondition implements Condition {
 
     @Override
     public boolean match(Trip trip) {
-        int totalDistance = 0;
-        for (Route route : trip.getPrice().getRoutes()) {
-            totalDistance += route.getDistance();
-        }
-        return totalDistance >= minDistance;
+        return trip.getRoute().getDistance() >= minDistance;
     }
 
     public Integer getId() {
