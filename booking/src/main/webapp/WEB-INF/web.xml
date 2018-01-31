@@ -20,4 +20,14 @@
     <servlet-name>RegisterCustomerServlet</servlet-name>
     <url-pattern>/registercustomer</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchSchedule</display-name>
+    <servlet-name>SearchSchedule</servlet-name>
+    <servlet-class>asd.booking.SearchSchedule</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchSchedule</servlet-name>
+    <url-pattern>/SearchSchedule</url-pattern>
+  </servlet-mapping>
 </web-app>
