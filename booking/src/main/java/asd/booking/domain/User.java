@@ -3,12 +3,18 @@
  */
 package asd.booking.domain;
 
+import java.io.Serializable;
+
 /**
  * @author luatnguyen
  *
  */
-public class User {
-
+public class User implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8241943357544065394L;
+	private int userId;
 	private String userName;
 	private String password;
 
@@ -18,6 +24,11 @@ public class User {
 	 * 
 	 */
 	public User() {
+	}
+	
+	public User(String userName, String password) {
+		this.userName = userName;
+		this.password = password;
 	}
 	
 	/**
@@ -74,4 +85,19 @@ public class User {
 		this.valid = valid;
 	}
 
+	/**
+	 * @return the userId
+	 */
+	public int getUserId() {
+		return userId;
+	}
+
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	
 }

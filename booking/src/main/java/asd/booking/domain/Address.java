@@ -8,8 +8,8 @@ package asd.booking.domain;
  *
  */
 public class Address {
-	private String Address1;
-	private String Address2;
+	private String street1;
+	private String street2;
 	private String city;
 	private String zipCode;
 	private String state;
@@ -24,8 +24,8 @@ public class Address {
 	 */
 	public Address(String address1, String address2, String city, String zipCode, String state) {
 		super();
-		Address1 = address1;
-		Address2 = address2;
+		street1 = address1;
+		street2 = address2;
 		this.city = city;
 		this.zipCode = zipCode;
 		this.state = state;
@@ -34,31 +34,31 @@ public class Address {
 	/**
 	 * @return the address1
 	 */
-	public String getAddress1() {
-		return Address1;
+	public String getStreet1() {
+		return street1;
 	}
 
 	/**
 	 * @param address1
 	 *            the address1 to set
 	 */
-	public void setAddress1(String address1) {
-		Address1 = address1;
+	public void setStreet1(String address1) {
+		street1 = address1;
 	}
 
 	/**
 	 * @return the address2
 	 */
-	public String getAddress2() {
-		return Address2;
+	public String getStreet2() {
+		return street2;
 	}
 
 	/**
 	 * @param address2
 	 *            the address2 to set
 	 */
-	public void setAddress2(String address2) {
-		Address2 = address2;
+	public void setStreet2(String address2) {
+		street2 = address2;
 	}
 
 	/**

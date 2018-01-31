@@ -8,6 +8,10 @@ package asd.booking.domain;
  *
  */
 public class Customer extends User {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2556059344018580596L;
 	private String firstName;
 	private String lastName;
 	private Address address;

@@ -29,7 +29,6 @@ public class Payment {
 	 */
 	public Payment(CardType cartType, String holderName, String cardNumber, String expiredMonth, String expiredYear,
 			String ccv) {
-		super();
 		this.cartType = cartType;
 		this.holderName = holderName;
 		this.cardNumber = cardNumber;
