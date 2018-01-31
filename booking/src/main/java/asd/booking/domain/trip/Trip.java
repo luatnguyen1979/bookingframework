@@ -1,6 +1,7 @@
 package asd.booking.domain.trip;
 
 import asd.booking.domain.Customer;
+import asd.booking.domain.Train;
 import asd.booking.domain.discount.passenger.Passenger;
 
 import java.time.LocalDate;
@@ -16,8 +17,10 @@ public class Trip {
     private LocalDate bookedDate;
     private Customer booker;
     private Route route;
+    private Train train;
 
-    public Trip(int id, boolean roundWay, LocalDate departureDate, LocalDate arrivalDate, List<Passenger> passengerList, LocalDate bookedDate, Customer booker, Route route) {
+    public Trip(int id, boolean roundWay, LocalDate departureDate, LocalDate arrivalDate, List<Passenger> passengerList,
+                LocalDate bookedDate, Customer booker, Route route, Train train) {
         this.id = id;
         this.roundWay = roundWay;
         this.departureDate = departureDate;
@@ -26,6 +29,7 @@ public class Trip {
         this.bookedDate = bookedDate;
         this.booker = booker;
         this.route = route;
+        this.train = train;
     }
 
     public int getId() {
@@ -90,5 +94,13 @@ public class Trip {
 
     public void setRoute(Route route) {
         this.route = route;
+    }
+
+    public Train getTrain() {
+        return train;
+    }
+
+    public void setTrain(Train train) {
+        this.train = train;
     }
 }
