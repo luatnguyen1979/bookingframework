@@ -12,6 +12,7 @@ import java.util.List;
 import asd.booking.domain.Train;
 import asd.booking.domain.trip.Port;
 import asd.booking.domain.trip.Route;
+import asd.booking.utils.DateTimeAdapter;
 
 public class RouteDAO {
 
@@ -19,13 +20,12 @@ public class RouteDAO {
     static ResultSet rs = null;
     static PreparedStatement ps = null;
 
-    public static Route getRoute(int sourcePortId, int destinationPortId, LocalDate departureDate, int travelerNumber) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
-        String date = departureDate.format(formatter);
+    public static Route getRoute(int sourcePortId, int destinationPortId, LocalDate departureDate) {
+        String date = DateTimeAdapter.adapt(departureDate);
         Route ret = null;
         final String sql = "SELECT * FROM route WHERE sourceport_id = ? " +
                 "AND destinationport_id = ?" +
-                "AND DATE(departuredate) = ?";
+                "AND date(departuredate) = ?";
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -87,7 +87,7 @@ public class RouteDAO {
         searchQuery.append("select * from route r");
         searchQuery.append(" left JOIN train t ON r.trainid = t.trainid");
         searchQuery.append(" where sourceport_id = " + sourcePortId + " AND destinationport_id = " + destinationPortId);
-        searchQuery.append(" AND DATE(departuredate) = '" + departureDate + "'");
+        searchQuery.append(" AND date(departuredate) = '" + departureDate + "'");
         System.out.println("Query: " + searchQuery);
         try {
             // connect to DB
@@ -105,7 +105,7 @@ public class RouteDAO {
                 Train train = TrainDAO.get(rs.getInt("trainid"));
                 LocalDate rdepartureDate = rs.getDate("departuredate").toLocalDate();
                 LocalDate arrivalDate = rs.getDate("arrivaldate").toLocalDate();
-                Route route  = new Route(rId,sourcePort,desPort,duration​,distance,priceOneWay,priceRoundWay,train,rdepartureDate,arrivalDate);
+                Route route = new Route(rId, sourcePort, desPort, duration​, distance, priceOneWay, priceRoundWay, train, rdepartureDate, arrivalDate);
                 routeList.add(route);
             }
 
@@ -165,7 +165,7 @@ public class RouteDAO {
                         rs.getDouble("distance"),
                         rs.getDouble("pricesingleway"),
                         rs.getDouble("priceroundway"),
-                        TrainDAO.get(rs.getInt("train_id")),
+                        TrainDAO.get(rs.getInt("trainid")),
                         rs.getDate("departuredate").toLocalDate(),
                         rs.getDate("arrivaldate").toLocalDate());
             }
