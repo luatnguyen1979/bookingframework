@@ -152,7 +152,47 @@ public class AddressDAO {
 	}
 
 	public static Address get(int id){
-		return new Address();
-		//TODO implement
+	    Address ret = null;
+        final String sql = "SELECT * FROM address WHERE addressid = ?";
+        try {
+            currentCon = ConnectionManager.getConnection();
+            prestmt = currentCon.prepareStatement(sql);
+            prestmt.setInt(1, id);
+            rs = prestmt.executeQuery();
+            if (rs.next()) {
+                String street1 = rs.getString("street1");
+                String street2 = rs.getString("street2");
+                String city = rs.getString("city") ;
+                String zipCode = rs.getString("zipcode");
+                String state = rs.getString("state");
+                ret = new Address(street1, street2, city, zipCode, state);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                }
+                rs = null;
+            }
+            if (prestmt != null) {
+                try {
+                    prestmt.close();
+                } catch (Exception e) {
+                }
+                prestmt = null;
+            }
+            if (currentCon != null) {
+                try {
+                    currentCon.close();
+                } catch (Exception e) {
+                }
+
+                currentCon = null;
+            }
+        }
+        return ret;
 	}
 }

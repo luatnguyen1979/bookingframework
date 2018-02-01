@@ -16,7 +16,7 @@ public class TrainDAO {
 
     public static Train get(int id) {
         Train ret = null;
-        final String sql = "SELECT * FROM train WHERE id = ?";
+        final String sql = "SELECT * FROM train WHERE trainid = ?";
         try {
             currentCon = ConnectionManager.getConnection();
             ps = currentCon.prepareStatement(sql);
