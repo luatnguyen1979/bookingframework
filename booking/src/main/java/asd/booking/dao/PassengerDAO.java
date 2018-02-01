@@ -36,13 +36,13 @@ public class PassengerDAO {
         }
     }
 
-    public static List<Passenger> getList(int id) {
+    public static List<Passenger> getList(int tripId) {
         List<Passenger> passengerList = new LinkedList<>();
         final String sql = "SELECT * FROM passengerList WHERE id = ?";
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            ps = Database.getInstance().preparedStatement(sql, id);
+            ps = Database.getInstance().preparedStatement(sql, tripId);
             rs = ps.executeQuery();
             while (rs.next()) {
                 PassengerType passengerType = PassengerType.valueOf(rs.getString("type"));

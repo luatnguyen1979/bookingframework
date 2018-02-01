@@ -23,7 +23,7 @@ public class Calculation {
 
     public double getFinalPrice(Trip trip, String promotionCode) {
         double regularPrice = trip.getRoute().getPriceOneWay();
-        if (trip.isRoundWay()) regularPrice = trip.getRoute().getPriceRoundWay();
+        if (trip.getTripWay().equals("roundtrip")) regularPrice = trip.getRoute().getPriceRoundWay();
         double totalPrice = 0.0;
         for (Passenger passenger : trip.getPassengerList()) {
             totalPrice = totalPrice + getPrice(regularPrice, passenger.getPassengerType());

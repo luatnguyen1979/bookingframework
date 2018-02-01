@@ -38,8 +38,6 @@ public class BookingSearchOptionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 
-			
-
 			List<Port> portList = PortDAO.getPortList();
 
 			if (portList != null) {
