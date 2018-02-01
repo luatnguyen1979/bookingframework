@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 
 public class PromotionDAO {
 
-    public static Double getPromotionPercent(String code) {
+    public static Double getPercent(String code) {
         Double ret = null;
         final String sql = "SELECT percent FROM promotion " +
                 "WHERE promotioncode = ? " +
