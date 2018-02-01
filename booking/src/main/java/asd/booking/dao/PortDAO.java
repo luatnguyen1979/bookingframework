@@ -15,9 +15,9 @@ public class PortDAO {
     static PreparedStatement ps = null;
 
     public static List<Port> getPortList() {
-        List<Port> portList = new ArrayList<Port>();
+        List<Port> portList = new ArrayList<>();
 
-        final String searchQuery = "SELECT * FROM PORT";
+        final String searchQuery = "SELECT * FROM port";
         // process
 
         System.out.println("Query: " + searchQuery);

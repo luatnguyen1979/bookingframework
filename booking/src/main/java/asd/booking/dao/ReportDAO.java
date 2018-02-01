@@ -16,7 +16,7 @@ public class ReportDAO {
 
     public static List<Report> getList(String startDate, String enddate) {
         List<Report> ret = new LinkedList<>();
-        final String sql = "SELECT * FROM report WHERE startdate= ? and enddate = ?";
+        final String sql = "SELECT * FROM report WHERE date >= ? and date < ?";
         try {
             currentCon = ConnectionManager.getConnection();
             ps = currentCon.prepareStatement(sql);
@@ -28,9 +28,10 @@ public class ReportDAO {
                         rs.getString("date"),
                         rs.getString("trainname"),
                         rs.getInt("passenger"),
-                        rs.getString("sourcename"),
-                        rs.getString("destname"),
+                        rs.getString("sourceport"),
+                        rs.getString("destport"),
                         rs.getDouble("totalprice"));
+                ret.add(report);
             }
         } catch (Exception e) {
             e.printStackTrace();
