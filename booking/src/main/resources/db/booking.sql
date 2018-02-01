@@ -91,9 +91,9 @@ CREATE TABLE `passenger` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `fullname` varchar(50) DEFAULT NULL,
   `type` varchar(10) NOT NULL,
-  `tripid` int(11) DEFAULT NULL,
+  `trip_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,7 +102,7 @@ CREATE TABLE `passenger` (
 
 LOCK TABLES `passenger` WRITE;
 /*!40000 ALTER TABLE `passenger` DISABLE KEYS */;
-INSERT INTO `passenger` VALUES (1,'Adult','Adult',NULL),(2,'Passenger with Disability (PWD)','Adult',NULL),(3,'Companion (Book with PWD)','Adult',NULL),(4,'Kimtey Chav','Adult',NULL),(5,'Luat Nguyen','Adult',NULL),(6,'Enkh Enkh','Adult',NULL),(7,'Tam Nguyen','Adult',NULL),(8,'Dat Doan','Senior',NULL),(9,'Vu Le','Senior',NULL),(10,'Dan Cao','Senior',NULL),(11,'Tam Huynh','Military',NULL),(12,'Nam Ngo','Military',NULL),(13,'Vu Ngo','Senior',NULL),(14,'Tin Nguyen','Senior',NULL),(15,'Trung Nguyen','Child',NULL),(16,'Dung Dinh','Child',NULL),(17,'Han Nguyen','Infant',NULL),(18,'Mi Tran','Child',NULL),(19,'Quoc Nguyen','Infant',NULL);
+INSERT INTO `passenger` VALUES (1,'Adult','Adult',NULL),(2,'Passenger with Disability (PWD)','Adult',NULL),(3,'Companion (Book with PWD)','Adult',NULL),(4,'Kimtey Chav','Adult',NULL),(5,'Luat Nguyen','Adult',NULL),(6,'Enkh Enkh','Adult',NULL),(7,'Tam Nguyen','Adult',NULL),(8,'Dat Doan','Senior',NULL),(9,'Vu Le','Senior',NULL),(10,'Dan Cao','Senior',NULL),(11,'Tam Huynh','Military',NULL),(12,'Nam Ngo','Military',NULL),(13,'Vu Ngo','Senior',NULL),(14,'Tin Nguyen','Senior',NULL),(15,'Trung Nguyen','Child',NULL),(16,'Dung Dinh','Child',NULL),(17,'Han Nguyen','Infant',NULL),(18,'Mi Tran','Child',NULL),(19,'Quoc Nguyen','Infant',NULL),(20,'Enkh Amgalan Erdenebat','ADULT',1),(21,'Enkh Amgalan Erdenebat','ADULT',1),(22,'Enkh Amgalan Erdenebat','ADULT',1),(23,'Enkh Amgalan Erdenebat','ADULT',1),(24,'Enkh Amgalan Erdenebat','ADULT',1);
 /*!40000 ALTER TABLE `passenger` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -299,12 +299,12 @@ DROP TABLE IF EXISTS `trip`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `trip` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `tripway` varchar(20) NOT NULL,
-  `bookDate` datetime NOT NULL,
+  `bookdate` datetime NOT NULL,
   `route_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
-  `confimationnumber` varchar(45) DEFAULT NULL,
+  `confirmationnumber` varchar(45) DEFAULT NULL,
   `totalprice` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `trip_id_uindex` (`id`),
@@ -312,7 +312,7 @@ CREATE TABLE `trip` (
   KEY `fk_trip_customer` (`customer_id`),
   CONSTRAINT `fk_route_route` FOREIGN KEY (`route_id`) REFERENCES `route` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_trip_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customerid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -321,6 +321,7 @@ CREATE TABLE `trip` (
 
 LOCK TABLES `trip` WRITE;
 /*!40000 ALTER TABLE `trip` DISABLE KEYS */;
+INSERT INTO `trip` VALUES (1,'1','2018-02-01 00:00:00',1,1,'ABC123',100.00);
 /*!40000 ALTER TABLE `trip` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -362,4 +363,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-01 14:12:58
+-- Dump completed on 2018-02-01 15:08:31

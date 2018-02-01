@@ -72,7 +72,7 @@ public class PassengerDAO {
             ps.setInt(1, tripId);
             rs = ps.executeQuery();
             while (rs.next()) {
-                PassengerType passengerType = PassengerType.valueOf(rs.getString("type"));
+                PassengerType passengerType = PassengerType.valueOf(rs.getString("type").toUpperCase());
                 Trip trip = TripDAO.getTrip(rs.getInt("trip_id"));
                 Passenger passenger = new Passenger(
                         rs.getInt("id"),
