@@ -1,7 +1,7 @@
 /**
  * 
  */
-package asd.booking;
+package asd.booking.controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

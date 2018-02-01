@@ -1,4 +1,4 @@
-package asd.booking;
+package asd.booking.controller;
 
 import java.io.IOException;
 
