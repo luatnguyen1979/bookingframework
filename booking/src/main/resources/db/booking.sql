@@ -208,6 +208,7 @@ CREATE TABLE `report` (
   `sourceport` varchar(45) NOT NULL,
   `destport` varchar(45) NOT NULL,
   `totalprice` decimal(15,2) NOT NULL,
+  `trainname` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -218,7 +219,7 @@ CREATE TABLE `report` (
 
 LOCK TABLES `report` WRITE;
 /*!40000 ALTER TABLE `report` DISABLE KEYS */;
-INSERT INTO `report` VALUES (1,'2018-01-30 00:00:00',100,'Mount Pleasant, IA','Chicago, Ill',500.00),(2,'2018-01-30 00:00:00',100,'Mount Pleasant, IA','Chicago, Ill',500.00),(3,'2018-02-01 00:00:00',201,'Mount Pleasant, IA','Chicago, Ill',1000.00),(4,'2018-02-02 00:00:00',251,'Mount Pleasant, IA','Chicago, Ill',1500.00);
+INSERT INTO `report` VALUES (1,'2018-01-30 00:00:00',100,'Mount Pleasant, IA','Chicago, Ill',500.00,'California Z'),(2,'2018-01-30 00:00:00',100,'Mount Pleasant, IA','Chicago, Ill',500.00,'California Z'),(3,'2018-02-01 00:00:00',201,'Mount Pleasant, IA','Chicago, Ill',1000.00,'California Z'),(4,'2018-02-02 00:00:00',251,'Mount Pleasant, IA','Chicago, Ill',1500.00,'California Z');
 /*!40000 ALTER TABLE `report` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -361,4 +362,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-01 14:02:34
+-- Dump completed on 2018-02-01 14:12:58
