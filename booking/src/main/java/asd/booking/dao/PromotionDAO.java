@@ -1,9 +1,14 @@
 package asd.booking.dao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class PromotionDAO {
+
+    static Connection currentCon = null;
+    static ResultSet rs = null;
+    static PreparedStatement ps = null;
 
     public static Double getPercent(String code) {
         Double ret = null;
@@ -14,7 +19,9 @@ public class PromotionDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            ps = Database.getInstance().preparedStatement(sql, code);
+            currentCon = ConnectionManager.getConnection();
+            ps = currentCon.prepareStatement(sql);
+            ps.setString(1, code);
             rs = ps.executeQuery();
             if (rs.next()) {
                 ret = rs.getDouble(1);
@@ -22,8 +29,28 @@ public class PromotionDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            Database.getInstance().close(ps);
-            Database.getInstance().close(rs);
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                }
+                rs = null;
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception e) {
+                }
+                ps = null;
+            }
+            if (currentCon != null) {
+                try {
+                    currentCon.close();
+                } catch (Exception e) {
+                }
+
+                currentCon = null;
+            }
         }
         return ret;
     }

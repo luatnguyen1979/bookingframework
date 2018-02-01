@@ -1,6 +1,5 @@
 package asd.booking.dao;
 
-import asd.booking.domain.Address;
 import asd.booking.domain.trip.Port;
 import asd.booking.domain.trip.Route;
 
@@ -14,10 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RouteDAO {
-	static Connection currentCon = null;
-	static ResultSet rs = null;
-	static PreparedStatement prestmt = null;
-	
+
+    static Connection currentCon = null;
+    static ResultSet rs = null;
+    static PreparedStatement ps = null;
+
     public static Route getRoute(int sourcePortId, int destinationPortId, LocalDate departureDate, int travelerNumber) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
         String date = departureDate.format(formatter);
@@ -28,7 +28,11 @@ public class RouteDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            ps = Database.getInstance().preparedStatement(sql, sourcePortId, destinationPortId, date);
+            currentCon = ConnectionManager.getConnection();
+            ps = currentCon.prepareStatement(sql);
+            ps.setInt(1, sourcePortId);
+            ps.setInt(2, destinationPortId);
+            ps.setString(3, date);
             rs = ps.executeQuery();
             if (rs.next()) {
                 Port sourcePort = PortDAO.get(rs.getInt("sourceport_id"));
@@ -47,84 +51,100 @@ public class RouteDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            Database.getInstance().close(ps);
-            Database.getInstance().close(rs);
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                }
+                rs = null;
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception e) {
+                }
+                ps = null;
+            }
+            if (currentCon != null) {
+                try {
+                    currentCon.close();
+                } catch (Exception e) {
+                }
+
+                currentCon = null;
+            }
         }
         return ret;
     }
-    
+
     public static List<Route> getRoute(int sourcePortId, int destinationPortId, String departureDate, int travelerNumber) {
-    		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
-//        String ddate = departureDate.format(formatter);
-//        String adate = arrivalDate.format(formatter);
-    		List<Route> routeList = new ArrayList<Route>();
-    		Statement stmt = null;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
+        List<Route> routeList = new ArrayList<Route>();
+        Statement stmt = null;
 
-    		StringBuffer searchQuery = new StringBuffer();
-    		searchQuery.append("select * from route r");
-    		searchQuery.append(" left JOIN train t ON r.trainid = t.trainid");
-    		searchQuery.append(" where sourceport_id = "+sourcePortId+" AND destinationport_id = " + destinationPortId);
-    		searchQuery.append(" AND DATE(departuredate) = '"+ departureDate +"'");
-    		// process
+        StringBuffer searchQuery = new StringBuffer();
+        searchQuery.append("select * from route r");
+        searchQuery.append(" left JOIN train t ON r.trainid = t.trainid");
+        searchQuery.append(" where sourceport_id = " + sourcePortId + " AND destinationport_id = " + destinationPortId);
+        searchQuery.append(" AND DATE(departuredate) = '" + departureDate + "'");
+        // process
 
-    		System.out.println("Query: " + searchQuery);
+        System.out.println("Query: " + searchQuery);
 
-    		try {
-    			// connect to DB
-    			currentCon = ConnectionManager.getConnection();
-    			stmt = currentCon.createStatement();
-    			rs = stmt.executeQuery(searchQuery.toString());
-    			while (rs.next()) {
+        try {
+            // connect to DB
+            currentCon = ConnectionManager.getConnection();
+            stmt = currentCon.createStatement();
+            rs = stmt.executeQuery(searchQuery.toString());
+            while (rs.next()) {
 
-    			}
+            }
 
-    			System.out.println("Port list size: " + routeList.size());
+            System.out.println("Port list size: " + routeList.size());
 
-    		}
+        } catch (Exception ex) {
+            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        }
 
-    		catch (Exception ex) {
-    			System.out.println("Log In failed: An Exception has occurred! " + ex);
-    		}
+        // some exception handling
+        finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                }
+                rs = null;
+            }
 
-    		// some exception handling
-    		finally {
-    			if (rs != null) {
-    				try {
-    					rs.close();
-    				} catch (Exception e) {
-    				}
-    				rs = null;
-    			}
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (Exception e) {
+                }
+                stmt = null;
+            }
 
-    			if (stmt != null) {
-    				try {
-    					stmt.close();
-    				} catch (Exception e) {
-    				}
-    				stmt = null;
-    			}
+            if (currentCon != null) {
+                try {
+                    currentCon.close();
+                } catch (Exception e) {
+                }
 
-    			if (currentCon != null) {
-    				try {
-    					currentCon.close();
-    				} catch (Exception e) {
-    				}
+                currentCon = null;
+            }
+        }
 
-    				currentCon = null;
-    			}
-    		}
+        return routeList;
 
-    		return routeList;
-    	
     }
 
     public static Route get(int id) {
         Route ret = null;
         final String sql = "SELECT * FROM route WHERE id = ?";
-        PreparedStatement ps = null;
-        ResultSet rs = null;
         try {
-            ps = Database.getInstance().preparedStatement(sql, id);
+            currentCon = ConnectionManager.getConnection();
+            ps = currentCon.prepareStatement(sql);
+            ps.setInt(1, id);
             rs = ps.executeQuery();
             if (rs.next()) {
                 Port sourcePort = PortDAO.get(rs.getInt("sourceport_id"));
@@ -143,8 +163,28 @@ public class RouteDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            Database.getInstance().close(ps);
-            Database.getInstance().close(rs);
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                }
+                rs = null;
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception e) {
+                }
+                ps = null;
+            }
+            if (currentCon != null) {
+                try {
+                    currentCon.close();
+                } catch (Exception e) {
+                }
+
+                currentCon = null;
+            }
         }
         return ret;
     }
