@@ -25,6 +25,11 @@ td {
  width:150px;   
 }
 
+.tableheader {
+	font-weight:bold;
+	font-size:14px;
+}
+
 .option{
  width:100px;   
 }                           

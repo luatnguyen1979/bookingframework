@@ -53,7 +53,7 @@ public class SearchSchedule extends HttpServlet {
 
 			if (routeList != null) {
 				String json = new Gson().toJson(routeList);
-			    response.setContentType("application/json");
+				response.setContentType("application/json");
 			    response.setCharacterEncoding("UTF-8");
 			    response.getWriter().write(json);
 			}
@@ -65,7 +65,7 @@ public class SearchSchedule extends HttpServlet {
 		catch (Throwable theException) {
 			System.out.println(theException);
 		}
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 
 	/**
