@@ -6,7 +6,7 @@
   </welcome-file-list>
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>asd.booking.LoginServlet</servlet-class>
+    <servlet-class>asd.booking.controller.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
@@ -14,7 +14,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>RegisterCustomerServlet</servlet-name>
-    <servlet-class>asd.booking.RegisterCustomerServlet</servlet-class>
+    <servlet-class>asd.booking.controller.RegisterCustomerServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>RegisterCustomerServlet</servlet-name>
@@ -24,10 +24,19 @@
     <description></description>
     <display-name>SearchSchedule</display-name>
     <servlet-name>SearchSchedule</servlet-name>
-    <servlet-class>asd.booking.SearchSchedule</servlet-class>
+    <servlet-class>asd.booking.controller.SearchSchedule</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>SearchSchedule</servlet-name>
     <url-pattern>/searchschedule</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <servlet-name>BookingSearchOptionServlet</servlet-name>
+    <servlet-class>asd.booking.controller.BookingSearchOptionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookingSearchOptionServlet</servlet-name>
+    <url-pattern>/bookingsearchoption</url-pattern>
   </servlet-mapping>
 </web-app>

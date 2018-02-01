@@ -1,6 +1,12 @@
 <%@include file="header.jsp"%>
+<%@ page import="asd.booking.domain.trip.Port,java.util.List, java.util.ArrayList"%>
+
+<%
+    List<Port> portList = (ArrayList<Port>) session.getAttribute("portList");
+
+%>
 <h1>See Where the Train Can Take You</h1>
-<form action="registercustomer" method="POST">
+<form action="searchschedule" method="POST">
 	<table width="1024px" >
 		<tr>
 			<td colspan="6" class="section">Book Tickets:</td>
@@ -19,19 +25,29 @@
                     <option value="oneway" selected>One Way</option>
                     <option value="roundtrip">Round Trip</option>
                 </select>
-            <td><select name="from" style="width:170px !important;">
-                    <option value="BRL">Burlington, IA - BRL</option>
-                    <option value="MTP">Mt. Pleasant, IA - MTP</option>
-                    <option value="US">Union Station</option>    
+            <td><select name="fromport" style="width:170px !important;">
+                    <%
+                        for (int i = 0; i < portList.size(); i++) {
+                            Port port = portList.get(i);
+                    %>
+                    <option value="<%=port.getId()%>"><%=port.getName()%></option>
+                    <%
+                       } 
+                    %>
                 </select></td>
-            <td><select name="to" style="width:170px !important;">
-                    <option value="BRL">Burlington, IA - BRL</option>
-                    <option value="MTP">Mt. Pleasant, IA - MTP</option>
-                    <option value="US">Union Station</option>    
-                </select></td>
-            <td><input type="date" name="depart" ></td>
-            <td><input type="date" name="return" ></td>
-            <td><input type=text" name="traveler"></td>
+            <td><select name="toport" style="width:170px !important;">
+					<%
+						for (int i = 0; i < portList.size(); i++) {
+							Port port = portList.get(i);
+					%>
+					<option value="<%=port.getId()%>"><%=port.getName()%></option>
+					<%
+					   } 
+					%>
+			</select></td>
+            <td><input type="date" name="departdate" ></td>
+            <td><input type="date" name="returndate" ></td>
+            <td><input type=text" name="travelernumber"></td>
         </tr>
 
 		<tr>
