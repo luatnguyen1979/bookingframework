@@ -1,7 +1,7 @@
 package asd.booking.dao;
 
 import asd.booking.domain.Customer;
-import asd.booking.domain.discount.passenger.Passenger;
+import asd.booking.domain.trip.Passenger;
 import asd.booking.domain.trip.Route;
 import asd.booking.domain.trip.Trip;
 

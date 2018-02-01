@@ -1,7 +1,6 @@
 package asd.booking.domain.trip;
 
 import asd.booking.domain.Customer;
-import asd.booking.domain.discount.passenger.Passenger;
 
 import java.time.LocalDate;
 import java.util.List;

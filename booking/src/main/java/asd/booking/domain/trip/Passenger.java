@@ -1,6 +1,5 @@
-package asd.booking.domain.discount.passenger;
+package asd.booking.domain.trip;
 
-import asd.booking.domain.trip.Trip;
 import asd.booking.utils.PassengerType;
 
 public class Passenger {

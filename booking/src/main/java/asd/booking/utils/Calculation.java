@@ -1,9 +1,8 @@
-package asd.booking.domain.discount.calculation;
+package asd.booking.utils;
 
 import asd.booking.dao.PromotionDAO;
-import asd.booking.domain.discount.passenger.Passenger;
+import asd.booking.domain.trip.Passenger;
 import asd.booking.domain.trip.Trip;
-import asd.booking.utils.PassengerType;
 
 public class Calculation {
 
