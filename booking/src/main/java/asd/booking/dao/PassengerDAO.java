@@ -73,7 +73,7 @@ public class PassengerDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 PassengerType passengerType = PassengerType.valueOf(rs.getString("type"));
-                Trip trip = TripDAO.get(rs.getInt("trip_id"));
+                Trip trip = TripDAO.getTrip(rs.getInt("trip_id"));
                 Passenger passenger = new Passenger(
                         rs.getInt("id"),
                         rs.getString("fullname"),
