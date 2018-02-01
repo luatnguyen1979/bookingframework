@@ -150,4 +150,9 @@ public class AddressDAO {
 
 		return id;
 	}
+
+	public static Address get(int id){
+		return new Address();
+		//TODO implement
+	}
 }

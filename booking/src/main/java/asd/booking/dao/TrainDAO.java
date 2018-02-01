@@ -12,22 +12,22 @@ import java.util.List;
 import asd.booking.domain.Train;
 
 public class TrainDAO {
-	static Connection currentCon = null;
-	static ResultSet rs = null;
+    static Connection currentCon = null;
+    static ResultSet rs = null;
 
-	public static List<Train> findByFromAndTo(String from, String to) {
-		List<Train> result = new ArrayList<Train>();
-		// preparing some objects for connection
-		Statement stmt = null;
+    public static List<Train> findByFromAndTo(String from, String to) {
+        List<Train> result = new ArrayList<Train>();
+        // preparing some objects for connection
+        Statement stmt = null;
 
 
-		StringBuffer searchQuery = new StringBuffer();
-		searchQuery.append("SELECT * train WHERE fromStation = " + from + " AND toStation = " + to);
-		
-		try {
-			currentCon = ConnectionManager.getConnection();
-			stmt = currentCon.createStatement();
-			rs = stmt.executeQuery(searchQuery.toString());
+        StringBuffer searchQuery = new StringBuffer();
+        searchQuery.append("SELECT * train WHERE fromStation = " + from + " AND toStation = " + to);
+
+        try {
+            currentCon = ConnectionManager.getConnection();
+            stmt = currentCon.createStatement();
+            rs = stmt.executeQuery(searchQuery.toString());
 //			boolean more = rs.next();
 //
 //			// if user does not exist set the isValid variable to false
@@ -73,40 +73,43 @@ public class TrainDAO {
 //				System.out.println("Welcome " + firstName);
 //				
 //			}
-		}
+        } catch (Exception ex) {
+            System.out.println("Log In failed: An Exception has occurred! " + ex);
+        }
 
-		catch (Exception ex) {
-			System.out.println("Log In failed: An Exception has occurred! " + ex);
-		}
+        // some exception handling
+        finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                }
+                rs = null;
+            }
 
-		// some exception handling
-		finally {
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (Exception e) {
-				}
-				rs = null;
-			}
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (Exception e) {
+                }
+                stmt = null;
+            }
 
-			if (stmt != null) {
-				try {
-					stmt.close();
-				} catch (Exception e) {
-				}
-				stmt = null;
-			}
+            if (currentCon != null) {
+                try {
+                    currentCon.close();
+                } catch (Exception e) {
+                }
 
-			if (currentCon != null) {
-				try {
-					currentCon.close();
-				} catch (Exception e) {
-				}
+                currentCon = null;
+            }
+        }
 
-				currentCon = null;
-			}
-		}
+        return result;
+    }
 
-		return result;
-	}
+    public static Train get(int id) {
+        return new Train();
+        //TODO implement
+    }
 }
