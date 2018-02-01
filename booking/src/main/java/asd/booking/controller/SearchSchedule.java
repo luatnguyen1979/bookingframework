@@ -49,7 +49,7 @@ public class SearchSchedule extends HttpServlet {
 			} catch (NumberFormatException nfe) {
 				
 			}
-			List<Route> routeList = RouteDAO.getRoute(sourcePortId, destinationPortId, departDate, numberPassenger);
+			List<Route> routeList = RouteDAO.getRoute(sourcePortId, destinationPortId, departDate);
 
 			if (routeList != null) {
 				String json = new Gson().toJson(routeList);
