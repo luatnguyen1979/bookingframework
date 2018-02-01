@@ -275,6 +275,7 @@ CREATE TABLE `trip` (
   `bookDate` datetime NOT NULL,
   `route_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
+  `confimationnumber` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `trip_id_uindex` (`id`),
   KEY `fk_route_route` (`route_id`),
@@ -331,4 +332,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-01  2:58:54
+-- Dump completed on 2018-02-01 10:12:18
