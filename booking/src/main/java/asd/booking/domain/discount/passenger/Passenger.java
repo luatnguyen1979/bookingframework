@@ -1,5 +1,6 @@
 package asd.booking.domain.discount.passenger;
 
+import asd.booking.domain.trip.Trip;
 import asd.booking.utils.PassengerType;
 
 public class Passenger {
@@ -7,11 +8,13 @@ public class Passenger {
     private Integer id;
     private String fullname;
     private PassengerType passengerType;
+    private Trip trip;
 
-    public Passenger(Integer id, String fullname, PassengerType passengerType) {
+    public Passenger(Integer id, String fullname, PassengerType passengerType, Trip trip) {
         this.id = id;
         this.fullname = fullname;
         this.passengerType = passengerType;
+        this.trip = trip;
     }
 
     public Integer getId() {
@@ -36,5 +39,13 @@ public class Passenger {
 
     public void setPassengerType(PassengerType passengerType) {
         this.passengerType = passengerType;
+    }
+
+    public Trip getTrip() {
+        return trip;
+    }
+
+    public void setTrip(Trip trip) {
+        this.trip = trip;
     }
 }

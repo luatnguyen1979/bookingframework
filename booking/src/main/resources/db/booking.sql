@@ -269,7 +269,7 @@ DROP TABLE IF EXISTS `trip`;
 CREATE TABLE `trip` (
   `id` int(11) NOT NULL,
   `roundway` tinyint(1) NOT NULL,
-  `bookDate` datetime NOT NULL,
+  `bookdate` datetime NOT NULL,
   `route_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
