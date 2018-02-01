@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `booking` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `booking`;
--- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
 --
 -- Host: localhost    Database: booking
 -- ------------------------------------------------------
--- Server version   5.7.19
+-- Server version	5.5.5-10.1.29-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -195,6 +195,34 @@ INSERT INTO `promotion` VALUES (1,'2018-01-01 00:00:00','2018-05-31 00:00:00','A
 UNLOCK TABLES;
 
 --
+-- Table structure for table `report`
+--
+
+DROP TABLE IF EXISTS `report`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `report` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` datetime NOT NULL,
+  `passenger` int(11) NOT NULL,
+  `sourceport` varchar(45) NOT NULL,
+  `destport` varchar(45) NOT NULL,
+  `totalprice` decimal(15,2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `report`
+--
+
+LOCK TABLES `report` WRITE;
+/*!40000 ALTER TABLE `report` DISABLE KEYS */;
+INSERT INTO `report` VALUES (1,'2018-01-30 00:00:00',100,'Mount Pleasant, IA','Chicago, Ill',500.00),(2,'2018-01-30 00:00:00',100,'Mount Pleasant, IA','Chicago, Ill',500.00),(3,'2018-02-01 00:00:00',201,'Mount Pleasant, IA','Chicago, Ill',1000.00),(4,'2018-02-02 00:00:00',251,'Mount Pleasant, IA','Chicago, Ill',1500.00);
+/*!40000 ALTER TABLE `report` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `route`
 --
 
@@ -333,4 +361,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-01 11:44:14
+-- Dump completed on 2018-02-01 14:02:34

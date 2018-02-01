@@ -32,6 +32,7 @@ public class Calculation {
             double percent = PromotionDAO.getPercent(promotionCode);
             totalPrice = totalPrice - (totalPrice / 100 * percent);
         }
+        trip.setTotalPrice(totalPrice);
         return totalPrice;
     }
 }
