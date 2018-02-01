@@ -1,6 +1,5 @@
 package asd.booking.dao;
 
-import asd.booking.domain.Address;
 import asd.booking.domain.Customer;
 import asd.booking.domain.trip.Passenger;
 import asd.booking.domain.trip.Route;
@@ -11,8 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 

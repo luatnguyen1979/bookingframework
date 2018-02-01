@@ -65,14 +65,14 @@ public class PassengerDAO {
 
     public static List<Passenger> getList(int tripId) {
         List<Passenger> passengerList = new LinkedList<>();
-        final String sql = "SELECT * FROM passengerList WHERE id = ?";
+        final String sql = "SELECT * FROM passenger WHERE id = ?";
         try {
             currentCon = ConnectionManager.getConnection();
             ps = currentCon.prepareStatement(sql);
             ps.setInt(1, tripId);
             rs = ps.executeQuery();
             while (rs.next()) {
-                PassengerType passengerType = PassengerType.valueOf(rs.getString("type"));
+                PassengerType passengerType = PassengerType.valueOf(rs.getString("type").toUpperCase());
                 Trip trip = TripDAO.getTrip(rs.getInt("trip_id"));
                 Passenger passenger = new Passenger(
                         rs.getInt("id"),
@@ -107,5 +107,45 @@ public class PassengerDAO {
             }
         }
         return passengerList;
+    }
+
+    public static int getCount(int tripId) {
+        int ret = 0;
+        final String sql = "SELECT count(*) FROM passenger WHERE id = ?";
+        try {
+            currentCon = ConnectionManager.getConnection();
+            ps = currentCon.prepareStatement(sql);
+            ps.setInt(1, tripId);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                ret = rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception e) {
+                }
+                rs = null;
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception e) {
+                }
+                ps = null;
+            }
+            if (currentCon != null) {
+                try {
+                    currentCon.close();
+                } catch (Exception e) {
+                }
+
+                currentCon = null;
+            }
+        }
+        return ret;
     }
 }
