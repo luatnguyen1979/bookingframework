@@ -15,7 +15,8 @@ public class RouteDAOTest extends TestCase {
     }
 
     public void testGetRoute1() {
-        Route result = RouteDAO.getRoute(1, 2, LocalDate.now());
+        LocalDate localDate = LocalDate.of(2018, 2, 3);
+        Route result = RouteDAO.getRoute(1, 2, localDate);
         Assert.assertNotNull(result);
 
     }

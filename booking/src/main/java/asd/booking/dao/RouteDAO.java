@@ -24,10 +24,8 @@ public class RouteDAO {
         String date = DateTimeAdapter.adapt(departureDate);
         Route ret = null;
         final String sql = "SELECT * FROM route WHERE sourceport_id = ? " +
-                "AND destinationport_id = ?" +
-                "AND date(departuredate) = ?";
-        PreparedStatement ps = null;
-        ResultSet rs = null;
+                "AND destinationport_id = ? " +
+                "AND DATE(departuredate) = ? ";
         try {
             currentCon = ConnectionManager.getConnection();
             ps = currentCon.prepareStatement(sql);
@@ -45,7 +43,7 @@ public class RouteDAO {
                         rs.getDouble("distance"),
                         rs.getDouble("pricesingleway"),
                         rs.getDouble("priceroundway"),
-                        TrainDAO.get(rs.getInt("train_id")),
+                        TrainDAO.get(rs.getInt("trainid")),
                         rs.getDate("departuredate").toLocalDate(),
                         rs.getDate("arrivaldate").toLocalDate());
             }
@@ -81,19 +79,21 @@ public class RouteDAO {
     public static List<Route> getRoute(int sourcePortId, int destinationPortId, String departureDate) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
         List<Route> routeList = new ArrayList<Route>();
-        Statement stmt = null;
 
         StringBuffer searchQuery = new StringBuffer();
         searchQuery.append("select * from route r");
         searchQuery.append(" left JOIN train t ON r.trainid = t.trainid");
-        searchQuery.append(" where sourceport_id = " + sourcePortId + " AND destinationport_id = " + destinationPortId);
-        searchQuery.append(" AND date(departuredate) = '" + departureDate + "'");
-        System.out.println("Query: " + searchQuery);
+        searchQuery.append(" where sourceport_id = ? AND destinationport_id = ?");
+        searchQuery.append(" AND DATE(departuredate) = ?");
+        System.out.println("Query: " + searchQuery.toString().replace("?", "" + sourcePortId));
         try {
             // connect to DB
             currentCon = ConnectionManager.getConnection();
-            stmt = currentCon.createStatement();
-            rs = stmt.executeQuery(searchQuery.toString());
+            ps = currentCon.prepareStatement(searchQuery.toString());
+            ps.setInt(1, sourcePortId);
+            ps.setInt(2, destinationPortId);
+            ps.setString(3, departureDate);
+            rs = ps.executeQuery();
             while (rs.next()) {
                 int rId = rs.getInt("id");
                 Port sourcePort = PortDAO.get(destinationPortId);
@@ -125,12 +125,12 @@ public class RouteDAO {
                 rs = null;
             }
 
-            if (stmt != null) {
+            if (ps != null) {
                 try {
-                    stmt.close();
+                    ps.close();
                 } catch (Exception e) {
                 }
-                stmt = null;
+                ps = null;
             }
 
             if (currentCon != null) {

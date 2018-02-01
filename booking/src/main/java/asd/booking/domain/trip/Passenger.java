@@ -9,6 +9,12 @@ public class Passenger {
     private PassengerType passengerType;
     private Trip trip;
 
+    public Passenger(String fullname, PassengerType passengerType, Trip trip) {
+        this.fullname = fullname;
+        this.passengerType = passengerType;
+        this.trip = trip;
+    }
+
     public Passenger(Integer id, String fullname, PassengerType passengerType, Trip trip) {
         this.id = id;
         this.fullname = fullname;
