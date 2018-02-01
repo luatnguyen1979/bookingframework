@@ -3,7 +3,6 @@
  */
 package asd.booking.mail;
 
-import asd.booking.dao.TrainDAO;
 import asd.booking.dao.UserDAO;
 import asd.booking.domain.User;
 
@@ -15,7 +14,7 @@ public class Main {
         user.setUserName("kimtey");
         user.setPassword("123");
         UserDAO.login(user);
-        TrainDAO.findByFromAndTo("Chicago", "Gary");
+//        TrainDAO.findByFromAndTo("Chicago", "Gary");
     }
 
 }
