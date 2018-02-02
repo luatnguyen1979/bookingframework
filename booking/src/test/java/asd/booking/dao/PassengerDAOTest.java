@@ -11,15 +11,12 @@ import java.util.List;
 public class PassengerDAOTest extends TestCase {
 
     public void testInsert() {
-        Trip trip = new Trip();
-        trip.setId(1);
         Passenger passenger = new Passenger(null,
                 "Enkh Amgalan Erdenebat",
                 PassengerType.ADULT,
-                trip);
-        PassengerDAO.insert(passenger);
-        Integer expectedValue = 21;
-        Assert.assertNotNull(passenger.getId());
+                1);
+        int i = PassengerDAO.insert(passenger);
+        Assert.assertTrue(i > 0);
     }
 
     public void testGetList() {

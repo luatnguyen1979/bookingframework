@@ -10,8 +10,8 @@ public class PromotionDAO {
     static ResultSet rs = null;
     static PreparedStatement ps = null;
 
-    public static Double getPercent(String code) {
-        Double ret = null;
+    public static double getPercent(String code) {
+        double ret = 0.00;
         final String sql = "SELECT percent FROM promotion " +
                 "WHERE promotioncode = ? " +
                 "AND startdate <= now() " +

@@ -11,10 +11,10 @@
 <form id="bookingSearch" method="GET">
 	<table width="1024px" >
 		<tr>
-			<td colspan="6" class="section">Book Tickets:</td>
+			<td colspan="6" class="section" align="center">Book Tickets:</td>
 
 		</tr>
-		<tr class="tableheader">
+		<tr>
 			<td width="16%">Trip</td>
 			<td width="20%">From</td>
 			<td width="20%">To</td>

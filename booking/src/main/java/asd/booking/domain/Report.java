@@ -30,10 +30,10 @@ public class Report {
         this();
         LocalDate localDate = LocalDate.now();//For reference
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
-        this.date = trip.getRoute().getDepartureDate().format(formatter);
-        this.trainName = trip.getRoute().getTrain().getName();
-        this.sourceName = trip.getRoute().getSource().getName();
-        this.destName = trip.getRoute().getDestination().getName();
+ //       this.date = trip.getRoute().getDepartureDate().format(formatter);
+ //       this.trainName = trip.getRoute().getTrain().getName();
+ //       this.sourceName = trip.getRoute().getSource().getName();
+ //       this.destName = trip.getRoute().getDestination().getName();
         this.totalPrice = trip.getTotalPrice();
     }
 

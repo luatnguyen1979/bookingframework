@@ -11,22 +11,22 @@ public class Trip {
     private String tripWay;
     private List<Passenger> passengerList;
     private String bookedDate;
-    private Customer booker;
-    private Route route;
+    private int customerId;
+    private int routeId;
     private String confirmationNumber;
     private Double totalPrice;
 
     public Trip() {
     }
 
-    public Trip(int id, String tripWay, List<Passenger> passengerList, String bookedDate, Customer booker,
-                Route route, String confirmationNumber) {
+    public Trip(int id, String tripWay, List<Passenger> passengerList, String bookedDate, int customerId,
+                int routeId, String confirmationNumber) {
         this.id = id;
         this.tripWay = tripWay;
         this.passengerList = passengerList;
         this.bookedDate = bookedDate;
-        this.booker = booker;
-        this.route = route;
+        this.customerId = customerId;
+        this.routeId = routeId;
         this.confirmationNumber = confirmationNumber;
     }
 
@@ -68,23 +68,37 @@ public class Trip {
         this.bookedDate = bookedDate;
     }
 
-    public Customer getBooker() {
-        return booker;
-    }
 
-    public void setBooker(Customer booker) {
-        this.booker = booker;
-    }
-
-    public Route getRoute() {
-        return route;
-    }
-
-    public void setRoute(Route route) {
-        this.route = route;
-    }
 
     /**
+	 * @return the customerId
+	 */
+	public int getCustomerId() {
+		return customerId;
+	}
+
+	/**
+	 * @param customerId the customerId to set
+	 */
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+
+	/**
+	 * @return the routeId
+	 */
+	public int getRouteId() {
+		return routeId;
+	}
+
+	/**
+	 * @param routeId the routeId to set
+	 */
+	public void setRouteId(int routeId) {
+		this.routeId = routeId;
+	}
+
+	/**
      * @return the confirmationNumber
      */
     public String getConfirmationNumber() {

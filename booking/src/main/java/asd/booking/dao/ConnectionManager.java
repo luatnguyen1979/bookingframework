@@ -29,7 +29,7 @@ public class ConnectionManager {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
 
             try {
-                con = DriverManager.getConnection(url, "root", "Password1");
+                con = DriverManager.getConnection(url, "root", "root");
 
                 // assuming your SQL Server's username is "username"
                 // and password is "password"

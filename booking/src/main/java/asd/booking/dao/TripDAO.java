@@ -31,8 +31,8 @@ public class TripDAO {
 			prestmt = currentCon.prepareStatement(insertAddress, Statement.RETURN_GENERATED_KEYS);
 
 			prestmt.setString(1, trip.getBookedDate());
-			prestmt.setInt(2, trip.getRoute().getId());
-			prestmt.setInt(3, trip.getBooker().getUserId());
+			prestmt.setInt(2, trip.getRouteId());
+			prestmt.setInt(3, trip.getCustomerId());
 
 			// execute insert SQL stetement
 			int affectedRows = prestmt.executeUpdate();
@@ -50,6 +50,7 @@ public class TripDAO {
 			}
 
 			System.out.println("Record is inserted into Trip table with id: " + id);
+			
 
 		}
 
@@ -108,11 +109,12 @@ public class TripDAO {
 				String tripWay = rs.getString("tripway");
 				String bookingDate = rs.getString("bookDate");
 				int routeId = rs.getInt("route_id");
+				int customerId = rs.getInt("customer_id");
 				String confirmationNumber = rs.getString("confirmationnumber");
-				Route route = RouteDAO.get(routeId);
+				//Route route = RouteDAO.get(routeId);
 				List<Passenger> passengerList = PassengerDAO.getList(tripId);
-				Customer cust = new Customer();
-				trip = new Trip(tripId, tripWay, passengerList, bookingDate, cust, route, confirmationNumber);
+				//Customer cust = CustomerDAO.getCustomer(customerId);
+				trip = new Trip(tripId, tripWay, passengerList, bookingDate, customerId, routeId, confirmationNumber);
 				
 			}
 
@@ -177,10 +179,10 @@ public class TripDAO {
 				String bookingDate = rs.getString("bookDate");
 				int routeId = rs.getInt("route_id");
 				String confirmationNumber = rs.getString("confirmationnumber");
-				Route route = RouteDAO.get(routeId);
+				//Route route = RouteDAO.get(routeId);
 				List<Passenger> passengerList = PassengerDAO.getList(tripId);
-				Customer cust = CustomerDAO.getCustomer(customerId);
-				Trip trip = new Trip(tripId, tripWay, passengerList, bookingDate, cust, route, confirmationNumber);
+				//Customer cust = CustomerDAO.getCustomer(customerId);
+				Trip trip = new Trip(tripId, tripWay, passengerList, bookingDate, customerId, routeId, confirmationNumber);
 				tripList.add(trip);
 			}
 

@@ -39,4 +39,24 @@
     <servlet-name>BookingSearchOptionServlet</servlet-name>
     <url-pattern>/bookingsearchoption</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ContinuingBookingServlet</display-name>
+    <servlet-name>ContinuingBookingServlet</servlet-name>
+    <servlet-class>asd.booking.controller.ContinuingBookingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ContinuingBookingServlet</servlet-name>
+    <url-pattern>/continuingbooking</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ConfirmCheckingOutServlet</display-name>
+    <servlet-name>ConfirmCheckingOutServlet</servlet-name>
+    <servlet-class>asd.booking.controller.ConfirmCheckingOutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConfirmCheckingOutServlet</servlet-name>
+    <url-pattern>/confirmcheckingout</url-pattern>
+  </servlet-mapping>
 </web-app>

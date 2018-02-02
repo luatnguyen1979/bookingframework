@@ -18,7 +18,7 @@ public class PassengerDAO {
     static PreparedStatement ps = null;
 
     public static int insert(Passenger passenger) {
-        final String sql = "INSERT INTO passenger (fullname, type, trip_id) VALUES (?, ?, ?)";
+        final String sql = "INSERT INTO passenger (fullname, type, price, trip_id) VALUES (?, ?, ?, ?)";
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -26,7 +26,8 @@ public class PassengerDAO {
             ps = currentCon.prepareStatement(sql);
             ps.setString(1, passenger.getFullname());
             ps.setString(2, passenger.getPassengerType().toString());
-            ps.setInt(3, passenger.getTrip().getId());
+            ps.setDouble(3, passenger.getPrice());
+            ps.setInt(3, passenger.getTripId());
 
             if (ps.executeUpdate() == 0) {
                 throw new SQLException("No row is affected.");
@@ -72,12 +73,12 @@ public class PassengerDAO {
             ps.setInt(1, tripId);
             rs = ps.executeQuery();
             while (rs.next()) {
-                PassengerType passengerType = PassengerType.valueOf(rs.getString("type").toUpperCase());
-                Trip trip = TripDAO.getTrip(rs.getInt("trip_id"));
+                String passengerType = rs.getString("type");
+                //int tripId = rs.getInt("trip_id");
                 Passenger passenger = new Passenger(
                         rs.getInt("id"),
                         rs.getString("fullname"),
-                        passengerType, trip);
+                        passengerType, tripId);
                 passengerList.add(passenger);
             }
         } catch (Exception e) {

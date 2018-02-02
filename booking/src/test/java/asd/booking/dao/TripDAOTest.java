@@ -21,12 +21,12 @@ public class TripDAOTest extends TestCase {
         Trip trip = new Trip();
         trip.setTotalPrice(100.0);
         trip.setBookedDate("2018-02-01");
-        trip.setBooker(customer);
+        trip.setCustomerId(1);
         trip.setConfirmationNumber(UniqueStringGenerator.generate(10));
-        trip.setRoute(route);
+        trip.setRouteId(1);
         trip.setTripWay("1");
         List<Passenger> passengerList = new LinkedList<>();
-        passengerList.add(new Passenger("Eegii", PassengerType.ADULT, trip));
+        passengerList.add(new Passenger("Eegii", PassengerType.ADULT,500.00, -1));
         trip.setPassengerList(passengerList);
         TripDAO.insert(trip);
         assertNotNull(trip.getId());
